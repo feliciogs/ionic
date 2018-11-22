@@ -6,7 +6,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { rootRenderNodes } from '@angular/core/src/view';
 
 @Component({
-  templateUrl: '<ion-nav #myNav [root]="rootPage"></ion-nav>'
+  template: '<ion-nav #myNav [root]="rootPage"></ion-nav>'
 })
 export class MyApp {
   @ViewChild('myNav') nav: NavController;

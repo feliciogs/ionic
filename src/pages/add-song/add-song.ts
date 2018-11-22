@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Song } from '../../models/song.model';
+import { SongService } from '../../services/song.service';
 
 /**
  * Generated class for the AddSongPage page.
@@ -14,12 +16,21 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'add-song.html',
 })
 export class AddSongPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  song: Song ={
+    title:'',
+    chords:'',
+    lyrics: '',
+    band:''
+  }
+  constructor(public navCtrl: NavController, public navParams: NavParams, private songs:SongService) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AddSongPage');
   }
-
+  addSong(song: Song){
+    this.songs.addSong(song).then(ref=>{
+      this.navCtrl.setRoot('HomePage', {key:ref.key});
+    });
+  }
 }

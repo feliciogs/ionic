@@ -15,6 +15,7 @@ import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 
 import { EmailComposer } from '@ionic-native/email-composer';
+import { SongService } from '../services/song.service';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,7 @@ import { EmailComposer } from '@ionic-native/email-composer';
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(FIREBASE_CONFIG),
     AngularFireDatabaseModule,
-    AngularFireAuth,
+    AngularFireAuthModule,
 
   ],
   bootstrap: [IonicApp],
@@ -38,6 +39,7 @@ import { EmailComposer } from '@ionic-native/email-composer';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AngularFireAuth,
+    SongService,
     EmailComposer
   ]
 })

@@ -14,5 +14,29 @@
 
 
 <ion-content padding>
-
+  <button ion-button block clear (click)="addSong(song)">Adicionar</button>
+  <ion-item>
+    <ion-label>
+      Nome do Autor
+    </ion-label>
+    <ion-input [(ngModel)]="song.band" placeholder="Nome do autor..."></ion-input>
+  </ion-item>
+  <ion-item>
+      <ion-label>
+        Tema da Frase
+      </ion-label>
+      <ion-input [(ngModel)]="song.title" placeholder="Tema da frase..."></ion-input>
+    </ion-item>
+  <ion-item>
+      <ion-label>
+         Frase
+      </ion-label>
+      <ion-input [(ngModel)]="song.chords" placeholder="Frase..."></ion-input>
+    </ion-item>
+  <ion-item>
+      <ion-label>
+        Palavra chave
+      </ion-label>
+      <ion-input [(ngModel)]="song.lyrics" placeholder="Palavra Chave..."></ion-input>
+  </ion-item>
 </ion-content>

@@ -7,12 +7,35 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>EditSongPage</ion-title>
+    <ion-title>Editando: {{song?.name}}</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+
+  <button ion-button block clear (click)="saveSong(song)">Salvar</button>
+  <button ion-button block clear (click)="deleteSong(song)">Apagar Frase</button>
+
+  <ion-item>
+    <ion-label>Autor:</ion-label>
+    <ion-input [(ngModel)]="song.band"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Titulo:</ion-label>
+    <ion-input [(ngModel)]="song.title"></ion-input>
+  </ion-item>
+
+  <ion-item class="chords">
+      <ion-label>Frase:</ion-label>
+      <ion-textarea [(ngModel)]="song.chords"></ion-textarea>
+  </ion-item>
+    
+  <ion-item>
+    <ion-label>Palavra Chave:</ion-label>
+    <ion-input [(ngModel)]="song.lyrics"></ion-input>
+  </ion-item>
 
 </ion-content>

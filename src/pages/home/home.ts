@@ -36,7 +36,7 @@ export class HomePage {
   onContextChange(ctxt: string): void{
     this.songsList$ = this.songsService.assembleBandFilteredList(ctxt).snapshotChanges().map(changes =>{
       return changes.map(c => ({
-        key: c.payload.key, ...c.pauload.val()
+        key: c.payload.key, ...c.payload.val()
       }));
     });
   }

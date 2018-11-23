@@ -85,7 +85,7 @@ var HomePage = /** @class */ (function () {
     };
     HomePage.prototype.onContextChange = function (ctxt) {
         this.songsList$ = this.songsService.assembleBandFilteredList(ctxt).snapshotChanges().map(function (changes) {
-            return changes.map(function (c) { return (__assign({ key: c.payload.key }, c.pauload.val())); });
+            return changes.map(function (c) { return (__assign({ key: c.payload.key }, c.payload.val())); });
         });
     };
     HomePage.prototype.showAllSongs = function () {
@@ -95,12 +95,12 @@ var HomePage = /** @class */ (function () {
     };
     HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-home',template:/*ion-inline-start:"/home/gabriel/ionic/src/pages/home/home.html"*/'<!--\n  Generated template for the HomePage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Meu Caderno de Frases</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <ion-buttons>\n    <button ion-button navPush = "AddSongPage">Adicionar Frase</button>\n    <button ion-button navPush = "RegisterBandPage">Adicionar Autor</button>\n    <button ion-button navPush = "AddSongPage"></button>\n  </ion-buttons>\n  <ion-list>\n    <ion-item>\n      <ion-label>Mostrar frases do Autor:</ion-label>\n      <ion-select (ionChange)="onContextChange($event)" [(ngModel)]="bands" multiple="false" cancelText="cancel" okText="Mostrar frases selecionadas">\n        <ion-option *ngFor="let band of bandList$ | async" detail-push>{{band.name}}</ion-option>\n      </ion-select>\n    </ion-item>\n  </ion-list>\n\n  <ion-list>\n    <ion-list-header>\n      Frases:\n    </ion-list-header>\n    <ion-item *ngFor="let item of songsList$ | async" detail-push navPush="ViewSongPage" [navParams]="{item:item}">\n      {{item.title}}\n    </ion-item>\n  </ion-list>\n  \n  <ion-buttons>\n    <button ion-button navPush="LoginPage">Login</button>\n    <button ion-button (click)="showAllSongs()">Mostrar Todas as Frases</button>\n    <button ion-button navPush="InvitePage">Convidar</button>\n  </ion-buttons>\n</ion-content>\n'/*ion-inline-end:"/home/gabriel/ionic/src/pages/home/home.html"*/,
+            selector: 'page-home',template:/*ion-inline-start:"/home/gabriel/ionic/src/pages/home/home.html"*/'<!--\n  Generated template for the HomePage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Meu Caderno de Frases</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <ion-buttons>\n    <button ion-button navPush = "AddSongPage">Adicionar Frase</button>\n    <button ion-button navPush = "RegisterPage">Adicionar Autor</button>\n  </ion-buttons>\n  <ion-list>\n    <ion-item>\n      <ion-label>Mostrar frases do Autor:</ion-label>\n      <ion-select (ionChange)="onContextChange($event)" [(ngModel)]="bands" multiple="false" cancelText="cancel" okText="Mostrar frases selecionadas">\n        <ion-option *ngFor="let band of bandsList$ | async" detail-push>{{band.name}}</ion-option>\n      </ion-select>\n    </ion-item>\n  </ion-list>\n\n  <ion-list>\n    <ion-list-header>\n      Frases:\n    </ion-list-header>\n    <ion-item *ngFor="let song of songsList$ | async" detail-push navPush="ViewSongPage" [navParams]="{song:song}">\n      {{song.chords}}\n    </ion-item>\n  </ion-list>\n  \n  <ion-buttons>\n    <button ion-button navPush="LoginPage">Login</button>\n    <button ion-button (click)="showAllSongs()">Mostrar Todas as Frases</button>\n    <button ion-button navPush="InvitePage">Convidar</button>\n  </ion-buttons>\n</ion-content>\n'/*ion-inline-end:"/home/gabriel/ionic/src/pages/home/home.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_2__services_song_service__["a" /* SongService */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__services_song_service__["a" /* SongService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_song_service__["a" /* SongService */]) === "function" && _c || Object])
     ], HomePage);
     return HomePage;
+    var _a, _b, _c;
 }());
 
 //# sourceMappingURL=home.js.map

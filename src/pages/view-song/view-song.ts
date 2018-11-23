@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Song } from '../../models/song.model';
 
 /**
  * Generated class for the ViewSongPage page.
@@ -14,12 +15,12 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'view-song.html',
 })
 export class ViewSongPage {
-
+  song: Song;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ViewSongPage');
+  ionViewWillLoad() {
+    this.song = this.navParams.get('song');
   }
 
 }

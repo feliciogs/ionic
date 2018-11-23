@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Band } from '../../models/band.model';
+import { SongService } from '../../services/song.service';
 
 /**
  * Generated class for the RegisterPage page.
@@ -14,12 +16,18 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'register.html',
 })
 export class RegisterPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  band: Band={
+    name:''
+  }
+  constructor(public navCtrl: NavController, public navParams: NavParams, private regBand: SongService) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad RegisterPage');
   }
-
+  addBand(band: Band){
+    this.regBand.addBand(band).then(ref=>{
+      this.navCtrl.setRoot('HomePage', {key:ref.key});
+    });
+  }
 }

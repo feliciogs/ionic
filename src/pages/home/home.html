@@ -16,14 +16,13 @@
 <ion-content padding>
   <ion-buttons>
     <button ion-button navPush = "AddSongPage">Adicionar Frase</button>
-    <button ion-button navPush = "RegisterBandPage">Adicionar Autor</button>
-    <button ion-button navPush = "AddSongPage"></button>
+    <button ion-button navPush = "RegisterPage">Adicionar Autor</button>
   </ion-buttons>
   <ion-list>
     <ion-item>
       <ion-label>Mostrar frases do Autor:</ion-label>
       <ion-select (ionChange)="onContextChange($event)" [(ngModel)]="bands" multiple="false" cancelText="cancel" okText="Mostrar frases selecionadas">
-        <ion-option *ngFor="let band of bandList$ | async" detail-push>{{band.name}}</ion-option>
+        <ion-option *ngFor="let band of bandsList$ | async" detail-push>{{band.name}}</ion-option>
       </ion-select>
     </ion-item>
   </ion-list>
@@ -32,8 +31,8 @@
     <ion-list-header>
       Frases:
     </ion-list-header>
-    <ion-item *ngFor="let item of songsList$ | async" detail-push navPush="ViewSongPage" [navParams]="{item:item}">
-      {{item.title}}
+    <ion-item *ngFor="let song of songsList$ | async" detail-push navPush="ViewSongPage" [navParams]="{song:song}">
+      {{song.chords}}
     </ion-item>
   </ion-list>
   

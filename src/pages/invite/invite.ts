@@ -26,12 +26,14 @@ export class InvitePage {
 
   sendEmail(){
     let email = {
-      to:'',
-      cc:'',
-      attachments:[],
-      subject:'Curta essa frase',
-      body:'Verifique esse aplicativo na APPSTORE e GOOGLEPLAY',
-      isHtml: isTrueProperty 
+      to: '',
+      cc: '',
+      attachments:[
+
+      ],
+      subject: 'Curta essa frase',
+      body: 'Verifique esse aplicativo na APPSTORE e GOOGLEPLAY',
+      isHtml: true 
     };
     this.emailComposer.open(email);
   }

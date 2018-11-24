@@ -1,14 +1,14 @@
 webpackJsonp([1],{
 
-/***/ 344:
+/***/ 345:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RegisterPageModule", function() { return RegisterPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ViewSongPageModule", function() { return ViewSongPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(108);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__register__ = __webpack_require__(351);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__view_song__ = __webpack_require__(354);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,34 +18,33 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var RegisterPageModule = /** @class */ (function () {
-    function RegisterPageModule() {
+var ViewSongPageModule = /** @class */ (function () {
+    function ViewSongPageModule() {
     }
-    RegisterPageModule = __decorate([
+    ViewSongPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__register__["a" /* RegisterPage */],
+                __WEBPACK_IMPORTED_MODULE_2__view_song__["a" /* ViewSongPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__register__["a" /* RegisterPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__view_song__["a" /* ViewSongPage */]),
             ],
         })
-    ], RegisterPageModule);
-    return RegisterPageModule;
+    ], ViewSongPageModule);
+    return ViewSongPageModule;
 }());
 
-//# sourceMappingURL=register.module.js.map
+//# sourceMappingURL=view-song.module.js.map
 
 /***/ }),
 
-/***/ 351:
+/***/ 354:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RegisterPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ViewSongPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(108);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_song_service__ = __webpack_require__(225);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -57,41 +56,30 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-
 /**
- * Generated class for the RegisterPage page.
+ * Generated class for the ViewSongPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-var RegisterPage = /** @class */ (function () {
-    function RegisterPage(navCtrl, navParams, regBand) {
+var ViewSongPage = /** @class */ (function () {
+    function ViewSongPage(navCtrl, navParams) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
-        this.regBand = regBand;
-        this.band = {
-            name: ''
-        };
     }
-    RegisterPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad RegisterPage');
+    ViewSongPage.prototype.ionViewWillLoad = function () {
+        this.song = this.navParams.get('song');
     };
-    RegisterPage.prototype.addBand = function (band) {
-        var _this = this;
-        this.regBand.addBand(band).then(function (ref) {
-            _this.navCtrl.setRoot('HomePage', { key: ref.key });
-        });
-    };
-    RegisterPage = __decorate([
+    ViewSongPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-register',template:/*ion-inline-start:"/home/gabriel/ionic/src/pages/register/register.html"*/'<ion-header>\n\n  <ion-navbar>\n    <ion-title>RegisterPage</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <ion-item>\n    <ion-label>Nome do Autor:</ion-label>\n    <ion-input [(ngModel)]="band.name" placeholder="Nome..."></ion-input>\n  </ion-item>\n  <button ion-button block clear (click)="addBand(band)">Cadastrar Autor</button>\n</ion-content>\n'/*ion-inline-end:"/home/gabriel/ionic/src/pages/register/register.html"*/,
+            selector: 'page-view-song',template:/*ion-inline-start:"C:\Users\Felicio Gabriel\suaFrase\ionic\src\pages\view-song\view-song.html"*/'<!--\n\n  Generated template for the ViewSongPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>{{song?.title}}</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n  <ion-buttons>\n\n    <button ion-button detail-push navPush="EditSongPage" [navParams]="{song: song}">Editar Frase</button>\n\n  </ion-buttons>\n\n  <ion-item class="chords">\n\n    <ion-textarea readonly [(ngModel)]="song.chords"></ion-textarea>\n\n  </ion-item>\n\n  <ion-item class="lyrics">\n\n      <ion-textarea readonly [(ngModel)]="song.lyrics"></ion-textarea>\n\n    </ion-item>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\Felicio Gabriel\suaFrase\ionic\src\pages\view-song\view-song.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__services_song_service__["a" /* SongService */]])
-    ], RegisterPage);
-    return RegisterPage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */]])
+    ], ViewSongPage);
+    return ViewSongPage;
 }());
 
-//# sourceMappingURL=register.js.map
+//# sourceMappingURL=view-song.js.map
 
 /***/ })
 

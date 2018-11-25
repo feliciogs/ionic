@@ -25674,6 +25674,16 @@ ion-navbar.toolbar {
   min-height: calc(46px + env(safe-area-inset-bottom));
 }
 
+.frase {
+  max-width: 100%;
+  width: 100%;
+  height: 15vh;
+}
+
+.menuApp {
+  background-color: #42f4f1;
+}
+
 page-login .error {
   color: #ff0000;
   font-size: 12px;
@@ -25681,7 +25691,7 @@ page-login .error {
 }
 
 page-login .logoApp {
-  width: 35%;
+  width: 30%;
   margin-left: 35%;
   margin-top: 20%;
   margin-bottom: 10%;
@@ -25690,30 +25700,49 @@ page-login .logoApp {
 page-login .btn-config {
   padding-left: 5%;
   padding-right: 5%;
-  margin-top: 10%;
+  margin-top: 8%;
 }
 
 page-login .bodyApp {
   background-color: #42f4f1;
+  overflow: hidden;
+}
+
+page-login .listItem {
+  border-radius: 50px;
+  margin-bottom: 5%;
+}
+
+.error {
+  color: #ff0000;
+  font-size: 12px;
+  text-align: center;
 }
 
 .logoApp {
   width: 35%;
   margin-left: 35%;
+  margin-top: 20%;
+  margin-bottom: 10%;
+}
+
+.btn-config {
+  padding-left: 5%;
+  padding-right: 5%;
+  margin-top: 10%;
 }
 
 .bodyApp {
   background-color: #42f4f1;
 }
 
+.listItem {
+  border-radius: 50px;
+  margin-bottom: 5%;
+}
+
 .chords {
   max-width: 100%;
   width: 100%;
-  height: 20vh;
-}
-
-.lyrics {
-  max-width: 100%;
-  width: 100%;
-  height: 60vh;
+  height: 15vh;
 }

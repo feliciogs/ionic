@@ -1,6 +1,12 @@
 page-login {
 
 }
-.logoApp{width: 35%;margin-left: 35%;}
-
+.error{
+    color: #ff0000;
+    font-size: 12px;
+    text-align: center;
+}
+.logoApp{width: 35%;margin-left: 35%; margin-top: 20%; margin-bottom: 10%}
+.btn-config{padding-left: 5%;padding-right: 5%;margin-top: 10%;}
 .bodyApp{background-color:#42f4f1;}
+.listItem{border-radius: 50px;margin-bottom: 5%;}

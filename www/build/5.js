@@ -1,6 +1,6 @@
 webpackJsonp([5],{
 
-/***/ 341:
+/***/ 342:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8,7 +8,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HomePageModule", function() { return HomePageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(108);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home__ = __webpack_require__(349);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home__ = __webpack_require__(350);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -38,7 +38,7 @@ var HomePageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 349:
+/***/ 350:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -102,7 +102,7 @@ var HomePage = /** @class */ (function () {
     };
     HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-home',template:/*ion-inline-start:"C:\Users\Felicio Gabriel\suaFrase\ionic\src\pages\home\home.html"*/'<!--\n\n  Generated template for the HomePage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>Meu Caderno de Frases</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n  <ion-buttons>\n\n    <button ion-button navPush = "AddSongPage">Adicionar Frase</button>\n\n    <button ion-button navPush = "RegisterPage">Adicionar Autor</button>\n\n  </ion-buttons>\n\n  <ion-list>\n\n    <ion-item>\n\n      <ion-label>Mostrar frases do Autor:</ion-label>\n\n      <ion-select (ionChange)="onContextChange($event)" [(ngModel)]="bands" multiple="false" cancelText="cancel" okText="Mostrar frases selecionadas">\n\n        <ion-option *ngFor="let band of bandsList$ | async" detail-push>{{band.name}}</ion-option>\n\n      </ion-select>\n\n    </ion-item>\n\n  </ion-list>\n\n\n\n  <ion-list>\n\n    <ion-list-header>\n\n      Frases:\n\n    </ion-list-header>\n\n    <ion-item *ngFor="let song of songsList$ | async" detail-push navPush="ViewSongPage" [navParams]="{song:song}">\n\n      {{song.chords}}\n\n    </ion-item>\n\n  </ion-list>\n\n  \n\n  <ion-buttons>\n\n    <button ion-button navPush="LoginPage">Login</button>\n\n    <button ion-button (click)="showAllSongs()">Mostrar Todas as Frases</button>\n\n    <button ion-button navPush="InvitePage">Convidar</button>\n\n  </ion-buttons>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\Felicio Gabriel\suaFrase\ionic\src\pages\home\home.html"*/,
+            selector: 'page-home',template:/*ion-inline-start:"C:\Users\Felicio Gabriel\suaFrase\ionic\src\pages\home\home.html"*/'<!--\n\n  Generated template for the HomePage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-menu [content]="content">\n\n  <ion-content padding  class="menuApp">\n\n    <ion-list>\n\n        <ion-buttons >\n\n          <button class="menuApp" ion-item navPush = "AddSongPage"><ion-icon name="ios-add-circle-outline"></ion-icon>  Adicionar Frase</button>\n\n          <button class="menuApp" ion-item navPush = "RegisterPage"><ion-icon name="ios-add-circle-outline"></ion-icon>  Adicionar Autor</button>\n\n          <button class="menuApp" ion-item navPush="InvitePage"><ion-icon name="md-share"></ion-icon>  Convidar</button>\n\n          <button class="menuApp" ion-item navPush="LoginPage"><ion-icon name="md-exit"></ion-icon>   Sair</button>\n\n      </ion-buttons>\n\n    </ion-list>\n\n  </ion-content>\n\n</ion-menu>\n\n\n\n<ion-nav [root]="rootPage" #content></ion-nav>\n\n<ion-header>\n\n  <ion-navbar>\n\n    <ion-buttons start>\n\n      <button ion-button icon-only menuToggle>\n\n        <ion-icon name="menu"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n    <ion-title>Meu Caderno de Frases</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content padding>\n\n  <ion-list>\n\n    <ion-item>\n\n      <ion-label>Mostrar frases do Autor:</ion-label>\n\n      <ion-select (ionChange)="onContextChange($event)" [(ngModel)]="bands" multiple="false" okText="Mostrar frases" cancelText="Cancelar" >\n\n        <ion-option *ngFor="let band of bandsList$ | async" detail-push>{{band.name}}</ion-option>\n\n      </ion-select>\n\n    </ion-item>\n\n  </ion-list>\n\n  <ion-list>\n\n    <ion-label>Frases:</ion-label>\n\n      <ion-item *ngFor="let song of songsList$ | async" detail-push navPush="ViewSongPage" [navParams]="{song:song}">\n\n      {{song.chords}}\n\n    </ion-item>\n\n  </ion-list>\n\n\n\n  <button ion-button full (click)="showAllSongs()">Mostrar Todas as Frases</button>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\Felicio Gabriel\suaFrase\ionic\src\pages\home\home.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */],
             __WEBPACK_IMPORTED_MODULE_2__services_song_service__["a" /* SongService */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* LoadingController */]])

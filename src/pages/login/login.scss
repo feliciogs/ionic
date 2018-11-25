@@ -4,7 +4,8 @@ page-login {
         font-size: 12px;
         text-align: center;
     }
-    .logoApp{width: 35%;margin-left: 35%; margin-top: 20%; margin-bottom: 10%}
-    .btn-config{padding-left: 5%;padding-right: 5%;margin-top: 10%;}
-    .bodyApp{background-color:#42f4f1;}
+    .logoApp{width: 30%;margin-left: 35%; margin-top: 20%; margin-bottom: 10%}
+    .btn-config{padding-left: 5%;padding-right: 5%;margin-top: 8%;}
+    .bodyApp{background-color:#42f4f1;overflow: hidden;}
+    .listItem{border-radius: 50px;margin-bottom: 5%;}
 }

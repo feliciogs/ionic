@@ -10,19 +10,23 @@
   </ion-navbar>    
 </ion-header>
 <ion-content padding class="bodyApp">
-  <img class="logoApp" src="../../assets/imgs/logoApp.png"/>
+  <img class="logoApp" src="../../assets/imgs/logo.png"/>
 
-  <ion-card>
-      <ion-item>
+  <ion-list>
+    <form [formGroup]="loginForm" (submit)="register(email, password)" novalidate>
+      <ion-item class="listItem">
         <ion-label>Email: </ion-label>
-        <ion-input [(ngModel)]="email"></ion-input>
+        <ion-input [(ngModel)]="email" formControlName="emailv"></ion-input>
       </ion-item>
-      <ion-item>
+      <h6 *ngIf="errorEmail" class="error"> {{messageEmail}}</h6>
+      <ion-item class="listItem">
         <ion-label>Senha: </ion-label>
-        <ion-input round type="password" [(ngModel)]="password"></ion-input>
+        <ion-input round type="password" [(ngModel)]="password" formControlName="passwordv"></ion-input>
       </ion-item>
-      <div text-center>
-        <button ion-button color="secondary" clear (click)='register(email, password)'>Cadastrar</button>
+      <h6 *ngIf="errorPassword" class="error"> {{messagePassword}}</h6>
+      <div text-center class="btn-config">
+        <button ion-button round full color="secondary">Cadastrar</button>
       </div>
-</ion-card>
+    </form>
+</ion-list>
 </ion-content>

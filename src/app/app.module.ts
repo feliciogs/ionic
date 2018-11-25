@@ -16,6 +16,7 @@ import { LoginPage } from '../pages/login/login';
 
 import { EmailComposer } from '@ionic-native/email-composer';
 import { SongService } from '../services/song.service';
+import { SocialSharing } from '@ionic-native/social-sharing';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { SongService } from '../services/song.service';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AngularFireAuth,
     SongService,
-    EmailComposer
+    EmailComposer,
+    SocialSharing
   ]
 })
 export class AppModule {}

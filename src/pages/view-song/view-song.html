@@ -12,14 +12,20 @@
 
 </ion-header>
 <ion-content padding>
+  <ion-list>
+    <ion-label>Título da Frase: </ion-label>
+    <ion-item class="lyrics">
+        <ion-input text-center readonly [(ngModel)]="song.title"></ion-input>
+    </ion-item>
+    <ion-label>Frase: </ion-label>
+    <ion-item class="chords">
+      <ion-textarea readonly [(ngModel)]="song.chords"></ion-textarea>
+    </ion-item>
+  </ion-list>
   <ion-buttons>
-    <button ion-button detail-push navPush="EditSongPage" [navParams]="{song: song}">Editar Frase</button>
-  </ion-buttons>
-  <ion-item class="lyrics">
-      <ion-input readonly [(ngModel)]="song.title"></ion-input>
-  </ion-item>
-  <ion-item class="chords">
-    <ion-textarea readonly [(ngModel)]="song.chords"></ion-textarea>
-  </ion-item>
-  
+      <button ion-button full color="secondary" detail-push navPush="EditSongPage" [navParams]="{song: song}">
+        <ion-icon ios="ios-create" md="md-create">  Editar Frase</ion-icon>
+      </button>
+      <button ion-button full (click)="share()" ><ion-icon ios="ios-share" md="md-share">   Compartilhar</ion-icon></button>
+    </ion-buttons>
 </ion-content>

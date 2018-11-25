@@ -8,26 +8,26 @@
 </ion-header>
 
 <ion-content padding class="bodyApp" [attr.noScroll]="shouldScroll">
-  <img class="logoApp" src="../../assets/imgs/logoApp.png" />
+  <img class="logoApp" src="../../assets/imgs/logo.png" />
 
-  <ion-list>
+  <ion-list >
       <form [formGroup]="loginForm" (submit)="login(email, password)" novalidate>
-        <ion-item>
+        <ion-item  class="listItem">
           <ion-label>Email: </ion-label>
           <ion-input type="email" [(ngModel)]="email" formControlName="emailv"></ion-input>
         </ion-item>
         <h6 *ngIf="errorEmail" class="error"> {{messageEmail}}</h6>
-        <ion-item>
+        <ion-item class="listItem">
           <ion-label>Senha: </ion-label>
           <ion-input type="password" [(ngModel)]="password" formControlName="passwordv"></ion-input>
         </ion-item>
         <h6 *ngIf="errorPassword" class="error"> {{messagePassword}}</h6>
         <div text-center class="btn-config">
-          <button ion-button round full >Login</button>
-        </div>
-        <div text-center>
-          <button ion-button color="secondary" clear (click)='newConta()'>Não tem conta?Clique e se cadastre.</button>
+          <button ion-button round full large>Login</button>
         </div>
       </form>
+      <div text-center>
+          <button ion-button color="danger" clear (click)='newConta()'>Não tem conta?Clique e se cadastre.</button>
+      </div>
 </ion-list>
 </ion-content>

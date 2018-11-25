@@ -34,7 +34,7 @@ export class LoginPage {
     if (!this.loginForm.valid) {
       if (!emailv.valid) {
         this.errorEmail = true;
-        this.messageEmail = "Ops! Email inválido";
+        this.messageEmail = "Ops! Email já existe ou é inválido";
       } else {
         this.messageEmail = "";
       }
@@ -54,6 +54,5 @@ export class LoginPage {
   }
   newConta(){
       this.navCtrl.setRoot('NewAcountPage');
-      
   }
 }

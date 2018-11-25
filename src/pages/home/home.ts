@@ -4,6 +4,8 @@ import { SongService } from '../../services/song.service';
 import { Observable } from 'rxjs/Observable';
 import { Song } from '../../models/song.model';
 import { Band } from '../../models/band.model';
+import { LoadingController } from 'ionic-angular';
+
 
 @IonicPage()
 @Component({
@@ -17,7 +19,7 @@ export class HomePage {
     name:''
   }
   constructor(public navCtrl: NavController, public navParams: NavParams,
-    private songsService: SongService) {
+    private songsService: SongService, public loadingCtrl: LoadingController) {
       this.songsList$ = this.songsService.getSongsList().snapshotChanges().map(changes=>{
         return changes.map(c=>({
           key: c.payload.key, ...c.payload.val()
@@ -26,11 +28,16 @@ export class HomePage {
   }
 
   ionViewWillLoad() {
+    const loader = this.loadingCtrl.create({
+      content: "Carregando aguarde...",
+      duration: 1500
+    });
     this.bandsList$ = this.songsService.getBandList().snapshotChanges().map(changes=>{
       return changes.map(c => ({
         key: c.payload.key, ...c.payload.val()
       }));
     });
+    loader.present();
   }
 
   onContextChange(ctxt: string): void{

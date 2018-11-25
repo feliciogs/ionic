@@ -19,7 +19,6 @@ export class AddSongPage {
   song: Song ={
     title:'',
     chords:'',
-    lyrics: '',
     band:''
   }
   constructor(public navCtrl: NavController, public navParams: NavParams, private songs:SongService) {

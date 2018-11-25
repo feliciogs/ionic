@@ -1,14 +1,14 @@
 webpackJsonp([6],{
 
-/***/ 339:
+/***/ 340:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AddSongPageModule", function() { return AddSongPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EditSongPageModule", function() { return EditSongPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(108);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__add_song__ = __webpack_require__(346);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__edit_song__ = __webpack_require__(348);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,31 +18,31 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var AddSongPageModule = /** @class */ (function () {
-    function AddSongPageModule() {
+var EditSongPageModule = /** @class */ (function () {
+    function EditSongPageModule() {
     }
-    AddSongPageModule = __decorate([
+    EditSongPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__add_song__["a" /* AddSongPage */],
+                __WEBPACK_IMPORTED_MODULE_2__edit_song__["a" /* EditSongPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__add_song__["a" /* AddSongPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__edit_song__["a" /* EditSongPage */]),
             ],
         })
-    ], AddSongPageModule);
-    return AddSongPageModule;
+    ], EditSongPageModule);
+    return EditSongPageModule;
 }());
 
-//# sourceMappingURL=add-song.module.js.map
+//# sourceMappingURL=edit-song.module.js.map
 
 /***/ }),
 
-/***/ 346:
+/***/ 348:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AddSongPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EditSongPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(108);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_song_service__ = __webpack_require__(225);
@@ -59,42 +59,42 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 /**
- * Generated class for the AddSongPage page.
+ * Generated class for the EditSongPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-var AddSongPage = /** @class */ (function () {
-    function AddSongPage(navCtrl, navParams, songs) {
+var EditSongPage = /** @class */ (function () {
+    function EditSongPage(navCtrl, navParams, songs) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.songs = songs;
-        this.song = {
-            title: '',
-            chords: '',
-            lyrics: '',
-            band: ''
-        };
     }
-    AddSongPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad AddSongPage');
+    EditSongPage.prototype.ionViewWillLoad = function () {
+        this.song = this.navParams.get('song');
     };
-    AddSongPage.prototype.addSong = function (song) {
+    EditSongPage.prototype.saveSong = function (song) {
         var _this = this;
-        this.songs.addSong(song).then(function (ref) {
-            _this.navCtrl.setRoot('HomePage', { key: ref.key });
+        this.songs.editSong(song).then(function () {
+            _this.navCtrl.setRoot('HomePage');
         });
     };
-    AddSongPage = __decorate([
+    EditSongPage.prototype.deleteSong = function (song) {
+        var _this = this;
+        this.songs.removeSong(song).then(function () {
+            _this.navCtrl.setRoot('HomePage');
+        });
+    };
+    EditSongPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-add-song',template:/*ion-inline-start:"C:\Users\Felicio Gabriel\suaFrase\ionic\src\pages\add-song\add-song.html"*/'<!--\n\n  Generated template for the AddSongPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>AddSongPage</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n  <button ion-button block clear (click)="addSong(song)">Adicionar</button>\n\n  <ion-item>\n\n    <ion-label>\n\n      Nome do Autor\n\n    </ion-label>\n\n    <ion-input [(ngModel)]="song.band" placeholder="Nome do autor..."></ion-input>\n\n  </ion-item>\n\n  <ion-item>\n\n      <ion-label>\n\n        Titulo da Frase\n\n      </ion-label>\n\n      <ion-input [(ngModel)]="song.title" placeholder="Tema da frase..."></ion-input>\n\n    </ion-item>\n\n  <ion-item>\n\n      <ion-label>\n\n         Frase\n\n      </ion-label>\n\n      <ion-input [(ngModel)]="song.chords" placeholder="Frase..."></ion-input>\n\n    </ion-item>\n\n  <ion-item>\n\n      <ion-label>\n\n        Palavra chave\n\n      </ion-label>\n\n      <ion-input [(ngModel)]="song.lyrics" placeholder="Palavra Chave..."></ion-input>\n\n  </ion-item>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\Felicio Gabriel\suaFrase\ionic\src\pages\add-song\add-song.html"*/,
+            selector: 'page-edit-song',template:/*ion-inline-start:"C:\Users\Felicio Gabriel\suaFrase\ionic\src\pages\edit-song\edit-song.html"*/'<!--\n\n  Generated template for the EditSongPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>Editando: {{song?.title}}</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n\n\n  <button ion-button block clear (click)="saveSong(song)">Salvar</button>\n\n  <button ion-button block clear (click)="deleteSong(song)">Apagar Frase</button>\n\n\n\n  <ion-item>\n\n    <ion-label>Autor:</ion-label>\n\n    <ion-input [(ngModel)]="song.band"></ion-input>\n\n  </ion-item>\n\n\n\n  <ion-item>\n\n    <ion-label>Titulo:</ion-label>\n\n    <ion-input [(ngModel)]="song.title"></ion-input>\n\n  </ion-item>\n\n\n\n  <ion-item class="chords">\n\n      <ion-label>Frase:</ion-label>\n\n      <ion-textarea [(ngModel)]="song.chords"></ion-textarea>\n\n  </ion-item>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\Felicio Gabriel\suaFrase\ionic\src\pages\edit-song\edit-song.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__services_song_service__["a" /* SongService */]])
-    ], AddSongPage);
-    return AddSongPage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__services_song_service__["a" /* SongService */]])
+    ], EditSongPage);
+    return EditSongPage;
 }());
 
-//# sourceMappingURL=add-song.js.map
+//# sourceMappingURL=edit-song.js.map
 
 /***/ })
 

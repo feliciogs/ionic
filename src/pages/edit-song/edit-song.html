@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Editando: {{song?.name}}</ion-title>
+    <ion-title>Editando: {{song?.title}}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -32,10 +32,4 @@
       <ion-label>Frase:</ion-label>
       <ion-textarea [(ngModel)]="song.chords"></ion-textarea>
   </ion-item>
-    
-  <ion-item>
-    <ion-label>Palavra Chave:</ion-label>
-    <ion-input [(ngModel)]="song.lyrics"></ion-input>
-  </ion-item>
-
 </ion-content>

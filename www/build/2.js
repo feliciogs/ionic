@@ -5,10 +5,10 @@ webpackJsonp([2],{
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RegisterPageModule", function() { return RegisterPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NewAcountPageModule", function() { return NewAcountPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(108);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__register__ = __webpack_require__(353);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__new_acount__ = __webpack_require__(352);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,34 +18,34 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var RegisterPageModule = /** @class */ (function () {
-    function RegisterPageModule() {
+var NewAcountPageModule = /** @class */ (function () {
+    function NewAcountPageModule() {
     }
-    RegisterPageModule = __decorate([
+    NewAcountPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__register__["a" /* RegisterPage */],
+                __WEBPACK_IMPORTED_MODULE_2__new_acount__["a" /* NewAcountPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__register__["a" /* RegisterPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__new_acount__["a" /* NewAcountPage */]),
             ],
         })
-    ], RegisterPageModule);
-    return RegisterPageModule;
+    ], NewAcountPageModule);
+    return NewAcountPageModule;
 }());
 
-//# sourceMappingURL=register.module.js.map
+//# sourceMappingURL=new-acount.module.js.map
 
 /***/ }),
 
-/***/ 353:
+/***/ 352:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RegisterPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NewAcountPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(108);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_song_service__ = __webpack_require__(225);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angularfire2_auth__ = __webpack_require__(55);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -59,39 +59,37 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 /**
- * Generated class for the RegisterPage page.
+ * Generated class for the NewAcountPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-var RegisterPage = /** @class */ (function () {
-    function RegisterPage(navCtrl, navParams, regBand) {
+var NewAcountPage = /** @class */ (function () {
+    function NewAcountPage(navCtrl, navParams, angularFireAuth) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
-        this.regBand = regBand;
-        this.band = {
-            name: ''
-        };
+        this.angularFireAuth = angularFireAuth;
     }
-    RegisterPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad RegisterPage');
+    NewAcountPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad NewAcountPage');
     };
-    RegisterPage.prototype.addBand = function (band) {
+    NewAcountPage.prototype.register = function (email, password) {
         var _this = this;
-        this.regBand.addBand(band).then(function (ref) {
-            _this.navCtrl.setRoot('HomePage', { key: ref.key });
+        this.angularFireAuth.auth.createUserWithEmailAndPassword(email, password)
+            .then(function (res) {
+            _this.navCtrl.setRoot('RegisterPage', { email: email });
         });
     };
-    RegisterPage = __decorate([
+    NewAcountPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-register',template:/*ion-inline-start:"C:\Users\Felicio Gabriel\suaFrase\ionic\src\pages\register\register.html"*/'<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>RegisterPage</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n  <ion-item>\n\n    <ion-label>Nome do Autor:</ion-label>\n\n    <ion-input [(ngModel)]="band.name" placeholder="Nome..."></ion-input>\n\n  </ion-item>\n\n  <button ion-button block clear (click)="addBand(band)">Cadastrar Autor</button>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\Felicio Gabriel\suaFrase\ionic\src\pages\register\register.html"*/,
+            selector: 'page-new-acount',template:/*ion-inline-start:"C:\Users\Felicio Gabriel\suaFrase\ionic\src\pages\new-acount\new-acount.html"*/'<!--\n  Generated template for the LoginPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <ion-navbar>\n    <ion-title text-center>Novo Usuário</ion-title>\n  </ion-navbar>    \n</ion-header>\n<ion-content padding class="bodyApp">\n  <img class="logoApp" src="../../assets/imgs/logoApp.png"/>\n\n  <ion-card>\n      <ion-item>\n        <ion-label>Email: </ion-label>\n        <ion-input [(ngModel)]="email"></ion-input>\n      </ion-item>\n      <ion-item>\n        <ion-label>Senha: </ion-label>\n        <ion-input round type="password" [(ngModel)]="password"></ion-input>\n      </ion-item>\n      <div text-center>\n        <button ion-button color="secondary" clear (click)=\'register(email, password)\'>Cadastrar</button>\n      </div>\n</ion-card>\n</ion-content>\n'/*ion-inline-end:"C:\Users\Felicio Gabriel\suaFrase\ionic\src\pages\new-acount\new-acount.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__services_song_service__["a" /* SongService */]])
-    ], RegisterPage);
-    return RegisterPage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2_angularfire2_auth__["a" /* AngularFireAuth */]])
+    ], NewAcountPage);
+    return NewAcountPage;
 }());
 
-//# sourceMappingURL=register.js.map
+//# sourceMappingURL=new-acount.js.map
 
 /***/ })
 

@@ -13,4 +13,8 @@
     <ion-input [(ngModel)]="band.name" placeholder="Nome do Autor..."></ion-input>
   </ion-item>
   <button ion-button block (click)="addBand(band)">Cadastrar Autor</button>
+  <ion-list>
+    <ion-label>Autores já Cadastrados:</ion-label>
+    <button ion-item *ngFor="let band of bandsList$ | async" detail-push>{{band.name}}</button>
+  </ion-list>
 </ion-content>

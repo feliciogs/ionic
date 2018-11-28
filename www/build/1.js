@@ -5,10 +5,10 @@ webpackJsonp([1],{
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RegisterPageModule", function() { return RegisterPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ResetpwdPageModule", function() { return ResetpwdPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(108);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__register__ = __webpack_require__(354);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__resetpwd__ = __webpack_require__(355);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,42 +18,34 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var RegisterPageModule = /** @class */ (function () {
-    function RegisterPageModule() {
+var ResetpwdPageModule = /** @class */ (function () {
+    function ResetpwdPageModule() {
     }
-    RegisterPageModule = __decorate([
+    ResetpwdPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__register__["a" /* RegisterPage */],
+                __WEBPACK_IMPORTED_MODULE_2__resetpwd__["a" /* ResetpwdPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__register__["a" /* RegisterPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__resetpwd__["a" /* ResetpwdPage */]),
             ],
         })
-    ], RegisterPageModule);
-    return RegisterPageModule;
+    ], ResetpwdPageModule);
+    return ResetpwdPageModule;
 }());
 
-//# sourceMappingURL=register.module.js.map
+//# sourceMappingURL=resetpwd.module.js.map
 
 /***/ }),
 
-/***/ 354:
+/***/ 355:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RegisterPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ResetpwdPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(108);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_song_service__ = __webpack_require__(225);
-var __assign = (this && this.__assign) || Object.assign || function(t) {
-    for (var s, i = 1, n = arguments.length; i < n; i++) {
-        s = arguments[i];
-        for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-            t[p] = s[p];
-    }
-    return t;
-};
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angularfire2_auth__ = __webpack_require__(56);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -66,46 +58,61 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-
-var RegisterPage = /** @class */ (function () {
-    function RegisterPage(navCtrl, navParams, regBand, songsService, loadingCtrl) {
+/**
+ * Generated class for the ResetpwdPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var ResetpwdPage = /** @class */ (function () {
+    function ResetpwdPage(navCtrl, navParams, angularFireAuth, toastCtrl) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
-        this.regBand = regBand;
-        this.songsService = songsService;
-        this.loadingCtrl = loadingCtrl;
-        this.band = {
-            name: ''
-        };
+        this.angularFireAuth = angularFireAuth;
+        this.toastCtrl = toastCtrl;
     }
-    RegisterPage.prototype.ionViewWillLoad = function () {
-        var loader = this.loadingCtrl.create({
-            content: "Carregando aguarde...",
-            duration: 1500
-        });
-        this.bandsList$ = this.songsService.getBandList().snapshotChanges().map(function (changes) {
-            return changes.map(function (c) { return (__assign({ key: c.payload.key }, c.payload.val())); });
-        });
-        loader.present();
-        console.log(this.bandsList$);
+    ResetpwdPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad ResetpwdPage');
     };
-    RegisterPage.prototype.addBand = function (band) {
+    ResetpwdPage.prototype.resetPassword = function (email) {
         var _this = this;
-        this.regBand.addBand(band).then(function (ref) {
-            _this.navCtrl.setRoot('HomePage', { key: ref.key });
+        this.angularFireAuth.auth.sendPasswordResetEmail(email)
+            .then(function (user) {
+            _this.navCtrl.setRoot('LoginPage');
+        })
+            .catch(function (erro) {
+            if (erro.code === 'auth/weak-password') {
+                _this.msgErro = "A senha deve conter no mínimo 6 caracteres";
+            }
+            else if (erro.code === 'auth/invalid-email') {
+                _this.msgErro = "O email informado é invalido";
+            }
+            else if (erro.code === 'auth/argument-error') {
+                _this.msgErro = "Por favor informe um email!";
+            }
+            else {
+                _this.msgErro = "Email não existe ou não está cadastrado";
+            }
+            _this.exibirToast(_this.msgErro);
         });
     };
-    RegisterPage = __decorate([
+    ResetpwdPage.prototype.exibirToast = function (erro) {
+        var toast = this.toastCtrl.create({ duration: 3000, position: 'botton' });
+        toast.setMessage(erro);
+        toast.present();
+        console.log(erro);
+    };
+    ResetpwdPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-register',template:/*ion-inline-start:"C:\Users\A\Documents\faculdade\ionic\src\pages\register\register.html"*/'<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title text-center>Registrar Autor</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n    <ion-label text-center><h4>Insira nome do seu autor favorito!</h4></ion-label>\n\n  <ion-item> \n\n    <ion-input [(ngModel)]="band.name" placeholder="Nome do Autor..."></ion-input>\n\n  </ion-item>\n\n  <button ion-button block (click)="addBand(band)">Cadastrar Autor</button>\n\n  <ion-list>\n\n    <ion-label>Autores já Cadastrados:</ion-label>\n\n    <button ion-item *ngFor="let band of bandsList$ | async" detail-push>{{band.name}}</button>\n\n  </ion-list>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\A\Documents\faculdade\ionic\src\pages\register\register.html"*/,
+            selector: 'page-resetpwd',template:/*ion-inline-start:"C:\Users\A\Documents\faculdade\ionic\src\pages\resetpwd\resetpwd.html"*/'<!--\n  Generated template for the LoginPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  </ion-header>\n  <ion-content padding class="bodyApp" [attr.noScroll]="shouldScroll">\n    <img class="logoApp" src="../../assets/imgs/logo.png" />\n  \n    <ion-list >\n        <form>\n          <ion-label text-center><h4>Resetar Senha</h4></ion-label>\n          <ion-item  class="listItem">\n            <ion-label>Email: </ion-label>\n            <ion-input type="email" [(ngModel)]="email" [ngModelOptions]="{standalone:true}"></ion-input>\n          </ion-item>\n          <ion-buttons text-center>\n            <button ion-button round (click)="resetPassword(email)">Resetar</button>\n            <button ion-button round color="secondary" navPush = "LoginPage">Voltar</button>\n          </ion-buttons>\n        </form>\n  </ion-list>\n  </ion-content>\n  '/*ion-inline-end:"C:\Users\A\Documents\faculdade\ionic\src\pages\resetpwd\resetpwd.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__services_song_service__["a" /* SongService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_song_service__["a" /* SongService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__services_song_service__["a" /* SongService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_song_service__["a" /* SongService */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* LoadingController */]) === "function" && _e || Object])
-    ], RegisterPage);
-    return RegisterPage;
-    var _a, _b, _c, _d, _e;
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2_angularfire2_auth__["a" /* AngularFireAuth */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_angularfire2_auth__["a" /* AngularFireAuth */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ToastController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ToastController */]) === "function" && _d || Object])
+    ], ResetpwdPage);
+    return ResetpwdPage;
+    var _a, _b, _c, _d;
 }());
 
-//# sourceMappingURL=register.js.map
+//# sourceMappingURL=resetpwd.js.map
 
 /***/ })
 

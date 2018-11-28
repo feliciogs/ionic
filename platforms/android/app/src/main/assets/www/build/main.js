@@ -30,11 +30,11 @@ var map = {
 		6
 	],
 	"../pages/home/home.module": [
-		342,
+		343,
 		5
 	],
 	"../pages/invite/invite.module": [
-		343,
+		342,
 		4
 	],
 	"../pages/login/login.module": [
@@ -196,8 +196,8 @@ var AppModule = /** @class */ (function () {
                     links: [
                         { loadChildren: '../pages/add-song/add-song.module#AddSongPageModule', name: 'AddSongPage', segment: 'add-song', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/edit-song/edit-song.module#EditSongPageModule', name: 'EditSongPage', segment: 'edit-song', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/home/home.module#HomePageModule', name: 'HomePage', segment: 'home', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/invite/invite.module#InvitePageModule', name: 'InvitePage', segment: 'invite', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/home/home.module#HomePageModule', name: 'HomePage', segment: 'home', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/new-acount/new-acount.module#NewAcountPageModule', name: 'NewAcountPage', segment: 'new-acount', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/register/register.module#RegisterPageModule', name: 'RegisterPage', segment: 'register', priority: 'low', defaultHistory: [] },

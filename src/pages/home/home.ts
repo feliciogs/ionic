@@ -27,6 +27,7 @@ export class HomePage {
       });
   }
 
+
   ionViewWillLoad() {
     const loader = this.loadingCtrl.create({
       content: "Carregando aguarde...",
@@ -47,6 +48,8 @@ export class HomePage {
       }));
     });
   }
+
+  
   
   showAllSongs(){
     this.songsList$ = this.songsService.getSongsList().snapshotChanges().map(changes=>{

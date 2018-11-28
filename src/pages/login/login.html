@@ -12,6 +12,7 @@
 
   <ion-list >
       <form [formGroup]="loginForm" (submit)="login(email, password)" novalidate>
+        <ion-label text-center><h4>Login</h4></ion-label>
         <ion-item  class="listItem">
           <ion-label>Email: </ion-label>
           <ion-input type="email" [(ngModel)]="email" formControlName="emailv"></ion-input>
@@ -27,7 +28,8 @@
         </div>
       </form>
       <div text-center>
-          <button ion-button color="danger" clear (click)='newConta()'>Não tem conta?Clique e se cadastre.</button>
+          <button ion-button color="danger" clear navPush = "NewAcountPage">Não tem conta?Clique e se cadastre.</button>
+          <button ion-button color="danger" clear navPush = "ResetpwdPage">Esqueceu sua Senha?</button>
       </div>
 </ion-list>
 </ion-content>

@@ -25680,6 +25680,12 @@ ion-navbar.toolbar {
   height: 15vh;
 }
 
+.chords {
+  max-width: 100%;
+  width: 100%;
+  height: 20vh;
+}
+
 .menuApp {
   background-color: #42f4f1;
 }
@@ -25744,5 +25750,5 @@ page-login .listItem {
 .chords {
   max-width: 100%;
   width: 100%;
-  height: 15vh;
+  height: 100%;
 }

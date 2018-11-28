@@ -1,4 +1,4 @@
-webpackJsonp([8],{
+webpackJsonp([9],{
 
 /***/ 119:
 /***/ (function(module, exports) {
@@ -22,30 +22,34 @@ webpackEmptyAsyncContext.id = 119;
 
 var map = {
 	"../pages/add-song/add-song.module": [
+		348,
+		8
+	],
+	"../pages/edit-song/edit-song.module": [
 		340,
 		7
 	],
-	"../pages/edit-song/edit-song.module": [
+	"../pages/home/home.module": [
 		341,
 		6
 	],
-	"../pages/home/home.module": [
+	"../pages/invite/invite.module": [
 		342,
 		5
 	],
-	"../pages/invite/invite.module": [
+	"../pages/login/login.module": [
 		343,
 		4
 	],
-	"../pages/login/login.module": [
+	"../pages/new-acount/new-acount.module": [
 		344,
 		3
 	],
-	"../pages/new-acount/new-acount.module": [
+	"../pages/register/register.module": [
 		345,
 		2
 	],
-	"../pages/register/register.module": [
+	"../pages/resetpwd/resetpwd.module": [
 		346,
 		1
 	],
@@ -194,14 +198,15 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
                 __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["c" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_9__app_component__["a" /* MyApp */], {}, {
                     links: [
-                        { loadChildren: '../pages/add-song/add-song.module#AddSongPageModule', name: 'AddSongPage', segment: 'add-song', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/edit-song/edit-song.module#EditSongPageModule', name: 'EditSongPage', segment: 'edit-song', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/home/home.module#HomePageModule', name: 'HomePage', segment: 'home', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/invite/invite.module#InvitePageModule', name: 'InvitePage', segment: 'invite', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/new-acount/new-acount.module#NewAcountPageModule', name: 'NewAcountPage', segment: 'new-acount', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/register/register.module#RegisterPageModule', name: 'RegisterPage', segment: 'register', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/view-song/view-song.module#ViewSongPageModule', name: 'ViewSongPage', segment: 'view-song', priority: 'low', defaultHistory: [] }
+                        { loadChildren: '../pages/resetpwd/resetpwd.module#ResetpwdPageModule', name: 'ResetpwdPage', segment: 'resetpwd', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/view-song/view-song.module#ViewSongPageModule', name: 'ViewSongPage', segment: 'view-song', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/add-song/add-song.module#AddSongPageModule', name: 'AddSongPage', segment: 'add-song', priority: 'low', defaultHistory: [] }
                     ]
                 }),
                 __WEBPACK_IMPORTED_MODULE_5_angularfire2___["a" /* AngularFireModule */].initializeApp(__WEBPACK_IMPORTED_MODULE_8__firebase_credentials__["a" /* FIREBASE_CONFIG */]),

@@ -46,6 +46,14 @@ var RegisterPageModule = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(108);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_song_service__ = __webpack_require__(225);
+var __assign = (this && this.__assign) || Object.assign || function(t) {
+    for (var s, i = 1, n = arguments.length; i < n; i++) {
+        s = arguments[i];
+        for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+            t[p] = s[p];
+    }
+    return t;
+};
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -58,23 +66,28 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-/**
- * Generated class for the RegisterPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+
 var RegisterPage = /** @class */ (function () {
-    function RegisterPage(navCtrl, navParams, regBand) {
+    function RegisterPage(navCtrl, navParams, regBand, songsService, loadingCtrl) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.regBand = regBand;
+        this.songsService = songsService;
+        this.loadingCtrl = loadingCtrl;
         this.band = {
             name: ''
         };
     }
-    RegisterPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad RegisterPage');
+    RegisterPage.prototype.ionViewWillLoad = function () {
+        var loader = this.loadingCtrl.create({
+            content: "Carregando aguarde...",
+            duration: 1500
+        });
+        this.bandsList$ = this.songsService.getBandList().snapshotChanges().map(function (changes) {
+            return changes.map(function (c) { return (__assign({ key: c.payload.key }, c.payload.val())); });
+        });
+        loader.present();
+        console.log(this.bandsList$);
     };
     RegisterPage.prototype.addBand = function (band) {
         var _this = this;
@@ -84,9 +97,10 @@ var RegisterPage = /** @class */ (function () {
     };
     RegisterPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-register',template:/*ion-inline-start:"C:\Users\A\Documents\faculdade\ionic\src\pages\register\register.html"*/'<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title text-center>Registrar Autor</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n    <ion-label text-center><h4>Insira nome do seu autor favorito!</h4></ion-label>\n\n  <ion-item> \n\n    <ion-input [(ngModel)]="band.name" placeholder="Nome do Autor..."></ion-input>\n\n  </ion-item>\n\n  <button ion-button block (click)="addBand(band)">Cadastrar Autor</button>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\A\Documents\faculdade\ionic\src\pages\register\register.html"*/,
+            selector: 'page-register',template:/*ion-inline-start:"C:\Users\A\Documents\faculdade\ionic\src\pages\register\register.html"*/'<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title text-center>Registrar Autor</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n    <ion-label text-center><h4>Insira nome do seu autor favorito!</h4></ion-label>\n\n  <ion-item> \n\n    <ion-input [(ngModel)]="band.name" placeholder="Nome do Autor..."></ion-input>\n\n  </ion-item>\n\n  <button ion-button block (click)="addBand(band)">Cadastrar Autor</button>\n\n  <ion-list>\n\n    <ion-label>Autores já Cadastrados:</ion-label>\n\n    <button ion-item *ngFor="let band of bandsList$ | async" detail-push>{{band.name}}</button>\n\n  </ion-list>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\A\Documents\faculdade\ionic\src\pages\register\register.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__services_song_service__["a" /* SongService */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__services_song_service__["a" /* SongService */],
+            __WEBPACK_IMPORTED_MODULE_2__services_song_service__["a" /* SongService */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* LoadingController */]])
     ], RegisterPage);
     return RegisterPage;
 }());

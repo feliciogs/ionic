@@ -1,6 +1,6 @@
 webpackJsonp([1],{
 
-/***/ 346:
+/***/ 347:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8,7 +8,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ResetpwdPageModule", function() { return ResetpwdPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(108);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__resetpwd__ = __webpack_require__(355);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__resetpwd__ = __webpack_require__(356);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -38,7 +38,7 @@ var ResetpwdPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 355:
+/***/ 356:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -104,12 +104,11 @@ var ResetpwdPage = /** @class */ (function () {
     };
     ResetpwdPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-resetpwd',template:/*ion-inline-start:"C:\Users\A\Documents\faculdade\ionic\src\pages\resetpwd\resetpwd.html"*/'<!--\n  Generated template for the LoginPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  </ion-header>\n  <ion-content padding class="bodyApp" [attr.noScroll]="shouldScroll">\n    <img class="logoApp" src="../../assets/imgs/logo.png" />\n  \n    <ion-list >\n        <form>\n          <ion-label text-center><h4>Resetar Senha</h4></ion-label>\n          <ion-item  class="listItem">\n            <ion-label>Email: </ion-label>\n            <ion-input type="email" [(ngModel)]="email" [ngModelOptions]="{standalone:true}"></ion-input>\n          </ion-item>\n          <ion-buttons text-center>\n            <button ion-button round (click)="resetPassword(email)">Resetar</button>\n            <button ion-button round color="secondary" navPush = "LoginPage">Voltar</button>\n          </ion-buttons>\n        </form>\n  </ion-list>\n  </ion-content>\n  '/*ion-inline-end:"C:\Users\A\Documents\faculdade\ionic\src\pages\resetpwd\resetpwd.html"*/,
+            selector: 'page-resetpwd',template:/*ion-inline-start:"C:\Users\A\Documents\faculdade\ionic\src\pages\resetpwd\resetpwd.html"*/'<!--\n  Generated template for the LoginPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  </ion-header>\n  <ion-content padding class="bodyApp" [attr.noScroll]="shouldScroll">\n    <img class="logoApp" src="../../assets/imgs/logo.png" />\n  \n    <ion-list >\n        <form>\n          <ion-label text-center><h4>Resetar Senha</h4></ion-label>\n          <ion-item  class="listItem">\n            <ion-label>Email: </ion-label>\n            <ion-input type="email" [(ngModel)]="email" [ngModelOptions]="{standalone:true}"></ion-input>\n          </ion-item>\n          <ion-buttons text-center>\n            <button ion-button round color="secondary" (click)="resetPassword(email)">Resetar</button>\n            <button ion-button round navPush = "LoginPage">Voltar</button>\n          </ion-buttons>\n        </form>\n  </ion-list>\n  </ion-content>\n  '/*ion-inline-end:"C:\Users\A\Documents\faculdade\ionic\src\pages\resetpwd\resetpwd.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2_angularfire2_auth__["a" /* AngularFireAuth */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_angularfire2_auth__["a" /* AngularFireAuth */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ToastController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ToastController */]) === "function" && _d || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2_angularfire2_auth__["a" /* AngularFireAuth */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ToastController */]])
     ], ResetpwdPage);
     return ResetpwdPage;
-    var _a, _b, _c, _d;
 }());
 
 //# sourceMappingURL=resetpwd.js.map

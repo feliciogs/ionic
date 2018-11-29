@@ -31,7 +31,6 @@ export class RegisterPage {
       }));
     });
     loader.present();
-    console.log(this.bandsList$);
   }
   
   addBand(band: Band){

@@ -22,39 +22,39 @@ webpackEmptyAsyncContext.id = 119;
 
 var map = {
 	"../pages/add-song/add-song.module": [
-		348,
+		340,
 		8
 	],
 	"../pages/edit-song/edit-song.module": [
-		340,
+		341,
 		7
 	],
 	"../pages/home/home.module": [
-		341,
+		342,
 		6
 	],
 	"../pages/invite/invite.module": [
-		342,
+		343,
 		5
 	],
 	"../pages/login/login.module": [
-		343,
+		344,
 		4
 	],
 	"../pages/new-acount/new-acount.module": [
-		344,
+		345,
 		3
 	],
 	"../pages/register/register.module": [
-		345,
+		346,
 		2
 	],
 	"../pages/resetpwd/resetpwd.module": [
-		346,
+		347,
 		1
 	],
 	"../pages/view-song/view-song.module": [
-		347,
+		348,
 		0
 	]
 };
@@ -198,6 +198,7 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
                 __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["c" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_9__app_component__["a" /* MyApp */], {}, {
                     links: [
+                        { loadChildren: '../pages/add-song/add-song.module#AddSongPageModule', name: 'AddSongPage', segment: 'add-song', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/edit-song/edit-song.module#EditSongPageModule', name: 'EditSongPage', segment: 'edit-song', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/home/home.module#HomePageModule', name: 'HomePage', segment: 'home', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/invite/invite.module#InvitePageModule', name: 'InvitePage', segment: 'invite', priority: 'low', defaultHistory: [] },
@@ -205,8 +206,7 @@ var AppModule = /** @class */ (function () {
                         { loadChildren: '../pages/new-acount/new-acount.module#NewAcountPageModule', name: 'NewAcountPage', segment: 'new-acount', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/register/register.module#RegisterPageModule', name: 'RegisterPage', segment: 'register', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/resetpwd/resetpwd.module#ResetpwdPageModule', name: 'ResetpwdPage', segment: 'resetpwd', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/view-song/view-song.module#ViewSongPageModule', name: 'ViewSongPage', segment: 'view-song', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/add-song/add-song.module#AddSongPageModule', name: 'AddSongPage', segment: 'add-song', priority: 'low', defaultHistory: [] }
+                        { loadChildren: '../pages/view-song/view-song.module#ViewSongPageModule', name: 'ViewSongPage', segment: 'view-song', priority: 'low', defaultHistory: [] }
                     ]
                 }),
                 __WEBPACK_IMPORTED_MODULE_5_angularfire2___["a" /* AngularFireModule */].initializeApp(__WEBPACK_IMPORTED_MODULE_8__firebase_credentials__["a" /* FIREBASE_CONFIG */]),

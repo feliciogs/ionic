@@ -1,20 +1,20 @@
 <ion-header>
 
-  <ion-navbar>
-    <ion-title text-center>Registrar Autor</ion-title>
+  <ion-navbar color="secondary">
+    <ion-title text-center>Cadastrar Autor</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-    <ion-label text-center><h4>Insira nome do seu autor favorito!</h4></ion-label>
+    <ion-label text-center><h5>Insira nome do seu autor favorito!</h5></ion-label>
   <ion-item> 
-    <ion-input [(ngModel)]="band.name" placeholder="Nome do Autor..."></ion-input>
+    <ion-input text-center [(ngModel)]="band.name" placeholder="Nome do Autor..."></ion-input>
   </ion-item>
-  <button ion-button block (click)="addBand(band)">Cadastrar Autor</button>
+  <button ion-button block (click)="addBand(band)">Cadastrar</button>
   <ion-list>
-    <ion-label>Autores já Cadastrados:</ion-label>
-    <button ion-item *ngFor="let band of bandsList$ | async" detail-push>{{band.name}}</button>
+    <ion-label text-center><h5>Autores já Cadastrados</h5></ion-label>
+    <button text-center ion-item *ngFor="let band of bandsList$ | async" detail-push>{{band.name}}</button>
   </ion-list>
 </ion-content>

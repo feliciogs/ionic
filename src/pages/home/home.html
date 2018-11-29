@@ -7,12 +7,17 @@
 <ion-menu [content]="content">
   <ion-content padding  class="menuApp">
     <ion-list>
+        <ion-item>
+            <ion-thumbnail item-start>
+              <img src="../../assets/imgs/user.png">
+            </ion-thumbnail>
+            <h3>{{identifacao}}</h3>
+        </ion-item>
         <ion-buttons >
-          {{user?.email}}
           <button class="menuApp" ion-item navPush = "AddSongPage"><ion-icon name="ios-add-circle-outline"></ion-icon>  Adicionar Frase</button>
-          <button class="menuApp" ion-item navPush = "RegisterPage"><ion-icon name="ios-add-circle-outline"></ion-icon>  Adicionar Autor</button>
+          <button class="menuApp" ion-item navPush = "RegisterPage"><ion-icon name="md-add-circle"></ion-icon>  Adicionar Autor</button>
           <button class="menuApp" ion-item navPush="InvitePage"><ion-icon name="md-share"></ion-icon>  Convidar</button>
-          <button class="menuApp" ion-item navPush="LoginPage"><ion-icon name="md-exit"></ion-icon>   Sair</button>
+          <button class="menuApp" ion-item (click)="sair()"><ion-icon name="md-exit"></ion-icon>   Sair</button>
       </ion-buttons>
     </ion-list>
   </ion-content>
@@ -34,7 +39,6 @@
     <ion-item>
       <ion-label>Frases do Autor:</ion-label>
       <ion-select (ionChange)="onContextChange($event)" [(ngModel)]="bands" multiple="false" okText="Mostrar frases" cancelText="Cancelar" >
-        
         <ion-option selected="true">Todos</ion-option>
         <ion-option *ngFor="let band of bandsList$ | async" detail-push>{{band.name}}</ion-option>
       </ion-select>
@@ -43,7 +47,8 @@
   <ion-list>
     <ion-label>Frases:</ion-label>
       <ion-item *ngFor="let song of songsList$ | async" detail-push navPush="ViewSongPage" [navParams]="{song:song}">
-      {{song.chords}}
+      <h2>{{song.chords}}</h2>
+      <p>{{song.band}}</p>
     </ion-item>
   </ion-list>
 

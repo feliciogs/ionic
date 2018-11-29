@@ -55,7 +55,7 @@ export class NewAcountPage {
     }else {
     this.angularFireAuth.auth.createUserWithEmailAndPassword(email,password)
     .then((res)=>{
-      this.navCtrl.setRoot('RegisterPage', {email});
+      this.navCtrl.setRoot('HomePage', {email});
     })
     .catch((erro: FirebaseError) => {
       if (erro.code === 'auth/weak-password') {

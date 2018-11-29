@@ -1,4 +1,4 @@
-webpackJsonp([8],{
+webpackJsonp([9],{
 
 /***/ 119:
 /***/ (function(module, exports) {
@@ -23,34 +23,38 @@ webpackEmptyAsyncContext.id = 119;
 var map = {
 	"../pages/add-song/add-song.module": [
 		340,
-		7
+		8
 	],
 	"../pages/edit-song/edit-song.module": [
 		341,
-		6
+		7
 	],
 	"../pages/home/home.module": [
+		342,
+		6
+	],
+	"../pages/invite/invite.module": [
 		343,
 		5
 	],
-	"../pages/invite/invite.module": [
-		342,
-		4
-	],
 	"../pages/login/login.module": [
 		344,
-		3
+		4
 	],
 	"../pages/new-acount/new-acount.module": [
 		345,
-		2
+		3
 	],
 	"../pages/register/register.module": [
 		346,
+		2
+	],
+	"../pages/resetpwd/resetpwd.module": [
+		347,
 		1
 	],
 	"../pages/view-song/view-song.module": [
-		347,
+		348,
 		0
 	]
 };
@@ -196,11 +200,12 @@ var AppModule = /** @class */ (function () {
                     links: [
                         { loadChildren: '../pages/add-song/add-song.module#AddSongPageModule', name: 'AddSongPage', segment: 'add-song', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/edit-song/edit-song.module#EditSongPageModule', name: 'EditSongPage', segment: 'edit-song', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/invite/invite.module#InvitePageModule', name: 'InvitePage', segment: 'invite', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/home/home.module#HomePageModule', name: 'HomePage', segment: 'home', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/invite/invite.module#InvitePageModule', name: 'InvitePage', segment: 'invite', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/new-acount/new-acount.module#NewAcountPageModule', name: 'NewAcountPage', segment: 'new-acount', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/register/register.module#RegisterPageModule', name: 'RegisterPage', segment: 'register', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/resetpwd/resetpwd.module#ResetpwdPageModule', name: 'ResetpwdPage', segment: 'resetpwd', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/view-song/view-song.module#ViewSongPageModule', name: 'ViewSongPage', segment: 'view-song', priority: 'low', defaultHistory: [] }
                     ]
                 }),

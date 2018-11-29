@@ -17,8 +17,8 @@
             <ion-input type="email" [(ngModel)]="email" [ngModelOptions]="{standalone:true}"></ion-input>
           </ion-item>
           <ion-buttons text-center>
-            <button ion-button round (click)="resetPassword(email)">Resetar</button>
-            <button ion-button round color="secondary" navPush = "LoginPage">Voltar</button>
+            <button ion-button round color="secondary" (click)="resetPassword(email)">Resetar</button>
+            <button ion-button round navPush = "LoginPage">Voltar</button>
           </ion-buttons>
         </form>
   </ion-list>

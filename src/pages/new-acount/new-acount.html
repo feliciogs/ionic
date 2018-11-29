@@ -5,15 +5,13 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-  <ion-navbar>
-    <ion-title text-center>Novo Usuário</ion-title>
-  </ion-navbar>    
 </ion-header>
 <ion-content padding class="bodyApp">
   <img class="logoApp" src="../../assets/imgs/logo.png"/>
 
   <ion-list>
     <form [formGroup]="loginForm" (submit)="register(email, password)" novalidate>
+      <ion-label text-center><h4>Cadastrar Usuário</h4></ion-label>
       <ion-item class="listItem">
         <ion-label>Email: </ion-label>
         <ion-input [(ngModel)]="email" formControlName="emailv"></ion-input>
@@ -24,9 +22,10 @@
         <ion-input round type="password" [(ngModel)]="password" formControlName="passwordv"></ion-input>
       </ion-item>
       <h6 *ngIf="errorPassword" class="error"> {{messagePassword}}</h6>
-      <div text-center class="btn-config">
-        <button ion-button large round full color="secondary">Cadastrar</button>
-      </div>
+      <ion-buttons text-center class="btn-config">
+        <button ion-button round medium color="secondary">Cadastrar</button>
+        <button ion-button round navPush = "LoginPage">Voltar</button>
+      </ion-buttons>
     </form>
 </ion-list>
 </ion-content>

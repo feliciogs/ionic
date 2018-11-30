@@ -12,7 +12,7 @@
 
   <ion-list >
       <form [formGroup]="loginForm" (submit)="login(email, password)" novalidate>
-        <ion-label text-center><h4>Login</h4></ion-label>
+        <ion-label text-center><h4 class="text-config">Login</h4></ion-label>
         <ion-item  class="listItem">
           <ion-label>Email: </ion-label>
           <ion-input type="email" [(ngModel)]="email" formControlName="emailv"></ion-input>
@@ -24,12 +24,17 @@
         </ion-item>
         <h6 *ngIf="errorPassword" class="error"> {{messagePassword}}</h6>
         <div text-center class="btn-config">
-          <button ion-button round full large>Login</button>
+          <button ion-button round full large>Entrar</button>
         </div>
-      </form>
+      </form> 
+      
+      <div text-center class="btn-config">
+        <ion-label text-center><h6 class="text-config">Ou Acesse com: </h6></ion-label>
+        <button ion-button round medium (click)="loginWithFacebook()"><ion-icon name="logo-facebook">  Login com Facebook</ion-icon></button>
+      </div>
       <div text-center>
-          <button ion-button color="danger" clear navPush = "NewAcountPage">Não tem conta?Clique e se cadastre.</button>
-          <button ion-button color="danger" clear navPush = "ResetpwdPage">Esqueceu sua Senha?</button>
+          <button ion-button class="text-config" clear navPush = "NewAcountPage">Novo aqui?Cadastre-se.</button>
+          <button ion-button class="text-config" clear navPush = "ResetpwdPage">Esqueceu sua Senha?</button>
       </div>
 </ion-list>
 </ion-content>

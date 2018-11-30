@@ -3,9 +3,14 @@ page-login {
         color: #ff0000;
         font-size: 12px;
         text-align: center;
+    
     }
-    .logoApp{width: 30%;margin-left: 35%; margin-top: 20%; margin-bottom: 10%}
+    .logoApp{width: 30%;margin-left: 35%; margin-top: 15%; margin-bottom: 10%}
     .btn-config{padding-left: 5%;padding-right: 5%;margin-top: 8%;}
-    .bodyApp{background-color:#42f4f1;overflow: hidden;}
+    .bodyApp{background: #06beb6;  /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #48b1bf, #06beb6);  /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #48b1bf, #06beb6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        overflow: hidden;}
+    .text-config{color:white;}
     .listItem{border-radius: 50px;margin-bottom: 5%;}
 }

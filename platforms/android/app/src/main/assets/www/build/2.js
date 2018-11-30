@@ -87,7 +87,6 @@ var RegisterPage = /** @class */ (function () {
             return changes.map(function (c) { return (__assign({ key: c.payload.key }, c.payload.val())); });
         });
         loader.present();
-        console.log(this.bandsList$);
     };
     RegisterPage.prototype.addBand = function (band) {
         var _this = this;
@@ -97,7 +96,7 @@ var RegisterPage = /** @class */ (function () {
     };
     RegisterPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-register',template:/*ion-inline-start:"C:\Users\A\Documents\faculdade\ionic\src\pages\register\register.html"*/'<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title text-center>Registrar Autor</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n    <ion-label text-center><h4>Insira nome do seu autor favorito!</h4></ion-label>\n\n  <ion-item> \n\n    <ion-input [(ngModel)]="band.name" placeholder="Nome do Autor..."></ion-input>\n\n  </ion-item>\n\n  <button ion-button block (click)="addBand(band)">Cadastrar Autor</button>\n\n  <ion-list>\n\n    <ion-label>Autores já Cadastrados:</ion-label>\n\n    <button ion-item *ngFor="let band of bandsList$ | async" detail-push>{{band.name}}</button>\n\n  </ion-list>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\A\Documents\faculdade\ionic\src\pages\register\register.html"*/,
+            selector: 'page-register',template:/*ion-inline-start:"C:\Users\A\Documents\faculdade\ionic\src\pages\register\register.html"*/'<ion-header>\n\n\n\n  <ion-navbar color="secondary">\n\n    <ion-title text-center>Cadastrar Autor</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n    <ion-label text-center><h5>Insira nome do seu autor favorito!</h5></ion-label>\n\n  <ion-item> \n\n    <ion-input text-center [(ngModel)]="band.name" placeholder="Nome do Autor..."></ion-input>\n\n  </ion-item>\n\n  <button ion-button block (click)="addBand(band)">Cadastrar</button>\n\n  <ion-list>\n\n    <ion-label text-center><h5>Autores já Cadastrados</h5></ion-label>\n\n    <button text-center ion-item *ngFor="let band of bandsList$ | async" detail-push>{{band.name}}</button>\n\n  </ion-list>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\A\Documents\faculdade\ionic\src\pages\register\register.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__services_song_service__["a" /* SongService */],
             __WEBPACK_IMPORTED_MODULE_2__services_song_service__["a" /* SongService */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* LoadingController */]])

@@ -5,10 +5,10 @@ webpackJsonp([1],{
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ResetpwdPageModule", function() { return ResetpwdPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ViewSongPageModule", function() { return ViewSongPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(108);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__resetpwd__ = __webpack_require__(356);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__view_song__ = __webpack_require__(366);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,34 +18,34 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var ResetpwdPageModule = /** @class */ (function () {
-    function ResetpwdPageModule() {
+var ViewSongPageModule = /** @class */ (function () {
+    function ViewSongPageModule() {
     }
-    ResetpwdPageModule = __decorate([
+    ViewSongPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__resetpwd__["a" /* ResetpwdPage */],
+                __WEBPACK_IMPORTED_MODULE_2__view_song__["a" /* ViewSongPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__resetpwd__["a" /* ResetpwdPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__view_song__["a" /* ViewSongPage */]),
             ],
         })
-    ], ResetpwdPageModule);
-    return ResetpwdPageModule;
+    ], ViewSongPageModule);
+    return ViewSongPageModule;
 }());
 
-//# sourceMappingURL=resetpwd.module.js.map
+//# sourceMappingURL=view-song.module.js.map
 
 /***/ }),
 
-/***/ 356:
+/***/ 366:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ResetpwdPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ViewSongPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(108);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angularfire2_auth__ = __webpack_require__(56);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_social_sharing__ = __webpack_require__(227);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -59,59 +59,41 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 /**
- * Generated class for the ResetpwdPage page.
+ * Generated class for the ViewSongPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-var ResetpwdPage = /** @class */ (function () {
-    function ResetpwdPage(navCtrl, navParams, angularFireAuth, toastCtrl) {
+var ViewSongPage = /** @class */ (function () {
+    function ViewSongPage(navCtrl, navParams, socialSharing) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
-        this.angularFireAuth = angularFireAuth;
-        this.toastCtrl = toastCtrl;
+        this.socialSharing = socialSharing;
+        this.message = null;
+        this.file = null;
+        this.link = null;
+        this.subject = null;
     }
-    ResetpwdPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad ResetpwdPage');
+    ViewSongPage.prototype.ionViewWillLoad = function () {
+        this.song = this.navParams.get('song');
     };
-    ResetpwdPage.prototype.resetPassword = function (email) {
-        var _this = this;
-        this.angularFireAuth.auth.sendPasswordResetEmail(email)
-            .then(function (user) {
-            _this.navCtrl.setRoot('LoginPage');
-        })
-            .catch(function (erro) {
-            if (erro.code === 'auth/weak-password') {
-                _this.msgErro = "A senha deve conter no mínimo 6 caracteres";
-            }
-            else if (erro.code === 'auth/invalid-email') {
-                _this.msgErro = "O email informado é invalido";
-            }
-            else if (erro.code === 'auth/argument-error') {
-                _this.msgErro = "Por favor informe um email!";
-            }
-            else {
-                _this.msgErro = "Email não existe ou não está cadastrado";
-            }
-            _this.exibirToast(_this.msgErro);
+    ViewSongPage.prototype.share = function () {
+        this.message = this.song.chords;
+        this.socialSharing.share(this.message, this.subject, this.file, this.link)
+            .then(function () {
+        }).catch(function () {
         });
     };
-    ResetpwdPage.prototype.exibirToast = function (erro) {
-        var toast = this.toastCtrl.create({ duration: 3000, position: 'botton' });
-        toast.setMessage(erro);
-        toast.present();
-        console.log(erro);
-    };
-    ResetpwdPage = __decorate([
+    ViewSongPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-resetpwd',template:/*ion-inline-start:"C:\Users\A\Documents\faculdade\ionic\src\pages\resetpwd\resetpwd.html"*/'<!--\n  Generated template for the LoginPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  </ion-header>\n  <ion-content padding class="bodyApp" [attr.noScroll]="shouldScroll">\n    <img class="logoApp" src="../../assets/imgs/logo.png" />\n  \n    <ion-list >\n        <form>\n          <ion-label text-center><h4>Resetar Senha</h4></ion-label>\n          <ion-item  class="listItem">\n            <ion-label>Email: </ion-label>\n            <ion-input type="email" [(ngModel)]="email" [ngModelOptions]="{standalone:true}"></ion-input>\n          </ion-item>\n          <ion-buttons text-center>\n            <button ion-button round color="secondary" (click)="resetPassword(email)">Resetar</button>\n            <button ion-button round navPush = "LoginPage">Voltar</button>\n          </ion-buttons>\n        </form>\n  </ion-list>\n  </ion-content>\n  '/*ion-inline-end:"C:\Users\A\Documents\faculdade\ionic\src\pages\resetpwd\resetpwd.html"*/,
+            selector: 'page-view-song',template:/*ion-inline-start:"C:\Users\A\Documents\faculdade\ionic\src\pages\view-song\view-song.html"*/'<!--\n\n  Generated template for the ViewSongPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar color="secondary">\n\n    <ion-title>Autor da frase: {{song?.band}}</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n<ion-content padding>\n\n  <ion-list>\n\n    <ion-label>Título da Frase: </ion-label>\n\n    <ion-item class="lyrics">\n\n        <ion-input text-center readonly [(ngModel)]="song.title"></ion-input>\n\n    </ion-item>\n\n    <ion-label>Frase: </ion-label>\n\n    <ion-item class="chords">\n\n      <ion-textarea rows="7" readonly [(ngModel)]="song.chords"></ion-textarea>\n\n    </ion-item>\n\n  </ion-list>\n\n  <ion-buttons>\n\n      <button ion-button full color="secondary" detail-push navPush="EditSongPage" [navParams]="{song: song}">\n\n        <ion-icon ios="ios-create" md="md-create">  Editar Frase</ion-icon>\n\n      </button>\n\n      <button ion-button full (click)="share()" ><ion-icon ios="ios-share" md="md-share">   Compartilhar</ion-icon></button>\n\n    </ion-buttons>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\A\Documents\faculdade\ionic\src\pages\view-song\view-song.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2_angularfire2_auth__["a" /* AngularFireAuth */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ToastController */]])
-    ], ResetpwdPage);
-    return ResetpwdPage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_social_sharing__["a" /* SocialSharing */]])
+    ], ViewSongPage);
+    return ViewSongPage;
 }());
 
-//# sourceMappingURL=resetpwd.js.map
+//# sourceMappingURL=view-song.js.map
 
 /***/ })
 

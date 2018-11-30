@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController} from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController,LoadingController} from 'ionic-angular';
 import { FormControl, FormGroup, Validators,FormBuilder } from '@angular/forms';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { FirebaseError } from '@firebase/util';
+import firebase from 'firebase';
 
 @IonicPage()
 @Component({
@@ -19,7 +20,8 @@ export class LoginPage {
   credentialsForm: FormGroup;
   msgErro : any;
   constructor(public navCtrl: NavController, public navParams: NavParams, 
-    public angularFireAuth: AngularFireAuth, public formBuilder: FormBuilder,public toastCtrl: ToastController) {
+    public angularFireAuth: AngularFireAuth, public formBuilder: FormBuilder,
+    public toastCtrl: ToastController, public loadingCtrl: LoadingController) {
     this.loginForm = formBuilder.group({
       emailv: ['', Validators.required],
       passwordv: ['', Validators.compose([Validators.minLength(6), Validators.maxLength(20),
@@ -30,6 +32,13 @@ export class LoginPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
+  }
+  loadingEffect(){
+    const loader = this.loadingCtrl.create({
+      content: "Carregando aguarde...",
+      duration: 900
+    });
+    loader.present();
   }
   login(email, password){
     let { emailv, passwordv } = this.loginForm.controls;
@@ -47,30 +56,49 @@ export class LoginPage {
       } else {
         this.messagePassword = "";
       }
-    }
-    else {
+    }else{
       this.angularFireAuth.auth.signInWithEmailAndPassword(email, password)
-      .then((user)=>{
-        this.navCtrl.setRoot('HomePage',{email});
-      })
-      .catch((erro: FirebaseError) => {
-        if (erro.code === 'auth/weak-password') {
-          this.msgErro = "A senha deve conter no mínimo 6 caracteres";
-        }
-          else if(erro.code === 'auth/invalid-email'){
-            this.msgErro = "O email informado é invalido";
+        .then((user)=>{
+          this.navCtrl.setRoot('HomePage',{email});
+        })
+        .catch((erro: FirebaseError) => {
+          if (erro.code === 'auth/weak-password') {
+            this.msgErro = "A senha deve conter no mínimo 6 caracteres";
           }
-            else {
-                this.msgErro = "A senha informada está incorreta!";
+            else if(erro.code === 'auth/invalid-email'){
+              this.msgErro = "O email informado é invalido";
             }
-        this.exibirToast(this.msgErro);
-    });  
+              else {
+                  this.msgErro = "A senha informada está incorreta!";
+              }
+          this.exibirToast(this.msgErro);
+      });  
     }
   }
+  loginWithFacebook(){
+    this.loadingEffect();
+    this.angularFireAuth.auth.signInWithPopup(new firebase.auth.FacebookAuthProvider())
+    .then(userFace =>{
+      console.log(userFace);
+      this.navCtrl.setRoot('HomePage',{userFace});
+    })
+    .catch((erro: FirebaseError) => {
+      if (erro.code === 'auth/weak-password') {
+        this.msgErro = "A senha deve conter no mínimo 6 caracteres";
+      }
+        else if(erro.code === 'auth/invalid-email'){
+          this.msgErro = "O email informado é invalido";
+        }
+          else {
+              this.msgErro = "A senha informada está incorreta!";
+          }
+      this.exibirToast(this.msgErro);
+  });  
+  }
+ 
   private exibirToast(erro: string): void {
     let toast = this.toastCtrl.create({duration: 3000,position: 'botton'});
     toast.setMessage(erro);
     toast.present();
-    console.log(erro);
   }
 }

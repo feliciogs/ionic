@@ -7,7 +7,6 @@ import { Band } from '../../models/band.model';
 import { LoadingController } from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth'
 
-
 @IonicPage()
 @Component({
   selector: 'page-home',
@@ -18,6 +17,7 @@ export class HomePage {
   bandsList$: Observable<Band[]>;
   public user : any;
   identifacao : any;
+  fotoPerfil:any;
   band: Band = {
     name:''
   }
@@ -43,7 +43,9 @@ export class HomePage {
   ionViewWillLoad() {
     this.loadingEffect();
     if(this.user != null){
-      this.identifacao = this.user.email;
+      this.identifacao = this.user.displayName;
+      this.fotoPerfil = this.user.photoURL;
+      console.log(this.fotoPerfil);
     }
     this.bandsList$ = this.songsService.getBandList().snapshotChanges().map(changes=>{
       return changes.map(c => ({

@@ -25703,7 +25703,7 @@ page-login .error {
 page-login .logoApp {
   width: 30%;
   margin-left: 35%;
-  margin-top: 20%;
+  margin-top: 15%;
   margin-bottom: 10%;
 }
 
@@ -25714,8 +25714,17 @@ page-login .btn-config {
 }
 
 page-login .bodyApp {
-  background-color: #42f4f1;
+  background: #06beb6;
+  /* fallback for old browsers */
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-gradient(linear, left top, right top, from(#48b1bf), to(#06beb6));
+  background: linear-gradient(to right, #48b1bf, #06beb6);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   overflow: hidden;
+}
+
+page-login .text-config {
+  color: white;
 }
 
 page-login .listItem {

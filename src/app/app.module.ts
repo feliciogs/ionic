@@ -4,6 +4,7 @@ import { IonicApp, IonicErrorHandler, IonicModule, NavController, NavParams } fr
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
+import firebase from 'firebase';
 import { AngularFireModule } from 'angularfire2/';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
@@ -17,6 +18,7 @@ import { LoginPage } from '../pages/login/login';
 import { EmailComposer } from '@ionic-native/email-composer';
 import { SongService } from '../services/song.service';
 import { SocialSharing } from '@ionic-native/social-sharing';
+import { Facebook } from '@ionic-native/facebook';
 
 @NgModule({
   declarations: [
@@ -42,6 +44,7 @@ import { SocialSharing } from '@ionic-native/social-sharing';
     AngularFireAuth,
     SongService,
     EmailComposer,
+    Facebook,
     SocialSharing
   ]
 })

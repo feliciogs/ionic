@@ -74,5 +74,16 @@
     },
     "is_top_level": true,
     "variables": {}
+  },
+  "cordova-plugin-facebook4": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-facebook4@3.2.0"
+    },
+    "is_top_level": true,
+    "variables": {
+      "APP_ID": "301927763755004",
+      "APP_NAME": "MeuCaderninho"
+    }
   }
 }

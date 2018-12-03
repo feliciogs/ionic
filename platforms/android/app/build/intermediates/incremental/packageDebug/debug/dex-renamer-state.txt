@@ -1,4 +1,4 @@
-#Thu Nov 29 16:51:12 GMT-03:00 2018
-base.0=C\:\\Users\\A\\Documents\\faculdade\\ionic\\platforms\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
+#Mon Dec 03 15:38:51 GMT-03:00 2018
+base.0=C\:\\Users\\A\\Documents\\faculdade\\backup\\ionic\\platforms\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
 path.0=classes.dex
 renamed.0=classes.dex

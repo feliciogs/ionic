@@ -1,6 +1,6 @@
 webpackJsonp([0],{
 
-/***/ 343:
+/***/ 345:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8,7 +8,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginPageModule", function() { return LoginPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(108);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__login__ = __webpack_require__(352);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__login__ = __webpack_require__(354);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -38,7 +38,7 @@ var LoginPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 352:
+/***/ 354:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -47,8 +47,9 @@ var LoginPageModule = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(108);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angularfire2_auth__ = __webpack_require__(58);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_firebase__ = __webpack_require__(353);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_firebase__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_facebook__ = __webpack_require__(232);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_firebase__ = __webpack_require__(355);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_firebase__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -63,14 +64,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var LoginPage = /** @class */ (function () {
-    function LoginPage(navCtrl, navParams, angularFireAuth, formBuilder, toastCtrl, loadingCtrl) {
+    function LoginPage(navCtrl, navParams, angularFireAuth, formBuilder, toastCtrl, loadingCtrl, facebook) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.angularFireAuth = angularFireAuth;
         this.formBuilder = formBuilder;
         this.toastCtrl = toastCtrl;
         this.loadingCtrl = loadingCtrl;
+        this.facebook = facebook;
         this.messageEmail = "";
         this.messagePassword = "";
         this.errorEmail = false;
@@ -132,7 +135,7 @@ var LoginPage = /** @class */ (function () {
     LoginPage.prototype.loginWithFacebook = function () {
         var _this = this;
         this.loadingEffect();
-        this.angularFireAuth.auth.signInWithPopup(new __WEBPACK_IMPORTED_MODULE_4_firebase___default.a.auth.FacebookAuthProvider())
+        this.angularFireAuth.auth.signInWithPopup(new __WEBPACK_IMPORTED_MODULE_5_firebase___default.a.auth.FacebookAuthProvider())
             .then(function (userFace) {
             console.log(userFace);
             _this.navCtrl.setRoot('HomePage', { userFace: userFace });
@@ -150,6 +153,20 @@ var LoginPage = /** @class */ (function () {
             _this.exibirToast(_this.msgErro);
         });
     };
+    LoginPage.prototype.fblogin = function () {
+        var _this = this;
+        this.facebook.login(['email']).then(function (res) {
+            var fc = __WEBPACK_IMPORTED_MODULE_5_firebase___default.a.auth.FacebookAuthProvider.credential(res.authResponse.accessToken);
+            __WEBPACK_IMPORTED_MODULE_5_firebase___default.a.auth().signInWithCredential(fc).then(function (fs) {
+                _this.navCtrl.setRoot('HomePage', { res: res });
+                _this.exibirToast("Login realizado com sucesso");
+            }).catch(function (ferr) {
+                alert("Firebase Erro");
+            });
+        }).catch(function (err) {
+            alert(JSON.stringify(err));
+        });
+    };
     LoginPage.prototype.exibirToast = function (erro) {
         var toast = this.toastCtrl.create({ duration: 3000, position: 'botton' });
         toast.setMessage(erro);
@@ -157,19 +174,21 @@ var LoginPage = /** @class */ (function () {
     };
     LoginPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-login',template:/*ion-inline-start:"C:\Users\A\Documents\faculdade\ionic\src\pages\login\login.html"*/'<!--\n\n  Generated template for the LoginPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n</ion-header>\n\n\n\n<ion-content padding class="bodyApp" [attr.noScroll]="shouldScroll">\n\n  <img class="logoApp" src="../../assets/imgs/logo.png" />\n\n\n\n  <ion-list >\n\n      <form [formGroup]="loginForm" (submit)="login(email, password)" novalidate>\n\n        <ion-label text-center><h4 class="text-config">Login</h4></ion-label>\n\n        <ion-item  class="listItem">\n\n          <ion-label>Email: </ion-label>\n\n          <ion-input type="email" [(ngModel)]="email" formControlName="emailv"></ion-input>\n\n        </ion-item>\n\n        <h6 *ngIf="errorEmail" class="error"> {{messageEmail}}</h6>\n\n        <ion-item class="listItem">\n\n          <ion-label>Senha: </ion-label>\n\n          <ion-input type="password" [(ngModel)]="password" formControlName="passwordv"></ion-input>\n\n        </ion-item>\n\n        <h6 *ngIf="errorPassword" class="error"> {{messagePassword}}</h6>\n\n        <div text-center class="btn-config">\n\n          <button ion-button round full large>Entrar</button>\n\n        </div>\n\n      </form> \n\n      \n\n      <div text-center class="btn-config">\n\n        <ion-label text-center><h6 class="text-config">Ou Acesse com: </h6></ion-label>\n\n        <button ion-button round medium (click)="loginWithFacebook()"><ion-icon name="logo-facebook">  Login com Facebook</ion-icon></button>\n\n      </div>\n\n      <div text-center>\n\n          <button ion-button class="text-config" clear navPush = "NewAcountPage">Novo aqui?Cadastre-se.</button>\n\n          <button ion-button class="text-config" clear navPush = "ResetpwdPage">Esqueceu sua Senha?</button>\n\n      </div>\n\n</ion-list>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\A\Documents\faculdade\ionic\src\pages\login\login.html"*/,
+            selector: 'page-login',template:/*ion-inline-start:"C:\Users\A\Documents\faculdade\backup\ionic\src\pages\login\login.html"*/'<!--\n\n  Generated template for the LoginPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n</ion-header>\n\n\n\n<ion-content padding class="bodyApp" [attr.noScroll]="shouldScroll">\n\n  <img class="logoApp" src="../../assets/imgs/logo.png" />\n\n\n\n  <ion-list >\n\n      <form [formGroup]="loginForm" (submit)="login(email, password)" novalidate>\n\n        <ion-label text-center><h4 class="text-config">Login</h4></ion-label>\n\n        <ion-item  class="listItem">\n\n          <ion-label>Email: </ion-label>\n\n          <ion-input type="email" [(ngModel)]="email" formControlName="emailv"></ion-input>\n\n        </ion-item>\n\n        <h6 *ngIf="errorEmail" class="error"> {{messageEmail}}</h6>\n\n        <ion-item class="listItem">\n\n          <ion-label>Senha: </ion-label>\n\n          <ion-input type="password" [(ngModel)]="password" formControlName="passwordv"></ion-input>\n\n        </ion-item>\n\n        <h6 *ngIf="errorPassword" class="error"> {{messagePassword}}</h6>\n\n        <div text-center class="btn-config">\n\n          <button ion-button round full large>Entrar</button>\n\n        </div>\n\n      </form> \n\n      \n\n      <div text-center class="btn-config">\n\n        <ion-label text-center><h6 class="text-config">Ou Acesse com: </h6></ion-label>\n\n        <button ion-button round medium (click)="fblogin()"><ion-icon name="logo-facebook">  Login com Facebook</ion-icon></button>\n\n      </div>\n\n      <div text-center>\n\n          <button ion-button class="text-config" clear navPush = "NewAcountPage">Novo aqui?Cadastre-se.</button>\n\n          <button ion-button class="text-config" clear navPush = "ResetpwdPage">Esqueceu sua Senha?</button>\n\n      </div>\n\n</ion-list>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\A\Documents\faculdade\backup\ionic\src\pages\login\login.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3_angularfire2_auth__["a" /* AngularFireAuth */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_angularfire2_auth__["a" /* AngularFireAuth */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormBuilder */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormBuilder */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ToastController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ToastController */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* LoadingController */]) === "function" && _f || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_3_angularfire2_auth__["a" /* AngularFireAuth */], __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormBuilder */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ToastController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* LoadingController */],
+            __WEBPACK_IMPORTED_MODULE_4__ionic_native_facebook__["a" /* Facebook */]])
     ], LoginPage);
     return LoginPage;
-    var _a, _b, _c, _d, _e, _f;
 }());
 
 //# sourceMappingURL=login.js.map
 
 /***/ }),
 
-/***/ 353:
+/***/ 355:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -177,14 +196,14 @@ var LoginPage = /** @class */ (function () {
 
 function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 
-__webpack_require__(354);
+__webpack_require__(356);
 var firebase = _interopDefault(__webpack_require__(56));
 __webpack_require__(230);
 __webpack_require__(228);
-__webpack_require__(358);
 __webpack_require__(360);
-__webpack_require__(361);
 __webpack_require__(362);
+__webpack_require__(363);
+__webpack_require__(364);
 
 /**
  * Copyright 2017 Google Inc.
@@ -304,12 +323,12 @@ module.exports = firebase;
 
 /***/ }),
 
-/***/ 354:
+/***/ 356:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* WEBPACK VAR INJECTION */(function(setImmediate, global) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_whatwg_fetch__ = __webpack_require__(357);
+/* WEBPACK VAR INJECTION */(function(setImmediate, global) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_whatwg_fetch__ = __webpack_require__(359);
 
 
 // Store setTimeout reference so promise-polyfill will be unaffected by
@@ -1840,11 +1859,11 @@ var iterator = _wksExt.f('iterator');
  * limitations under the License.
  */
 
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(355).setImmediate, __webpack_require__(57)))
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(357).setImmediate, __webpack_require__(57)))
 
 /***/ }),
 
-/***/ 355:
+/***/ 357:
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {var scope = (typeof global !== "undefined" && global) ||
@@ -1900,7 +1919,7 @@ exports._unrefActive = exports.active = function(item) {
 };
 
 // setimmediate attaches itself to the global object
-__webpack_require__(356);
+__webpack_require__(358);
 // On some exotic environments, it's not clear which object `setimmediate` was
 // able to install onto.  Search each possibility in the same order as the
 // `setimmediate` library.
@@ -1915,7 +1934,7 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 
 /***/ }),
 
-/***/ 356:
+/***/ 358:
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, process) {(function (global, undefined) {
@@ -2109,7 +2128,7 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 
 /***/ }),
 
-/***/ 357:
+/***/ 359:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2638,7 +2657,7 @@ if (!self.fetch) {
 
 /***/ }),
 
-/***/ 358:
+/***/ 360:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2651,7 +2670,7 @@ function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'defau
 var firebase = _interopDefault(__webpack_require__(56));
 var logger = __webpack_require__(229);
 var tslib_1 = __webpack_require__(21);
-var webchannelWrapper = __webpack_require__(359);
+var webchannelWrapper = __webpack_require__(361);
 
 /**
  * Copyright 2017 Google Inc.
@@ -23518,7 +23537,7 @@ exports.registerFirestore = registerFirestore;
 
 /***/ }),
 
-/***/ 359:
+/***/ 361:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -23661,7 +23680,7 @@ var src_5 = src.XhrIoPool;
 
 /***/ }),
 
-/***/ 360:
+/***/ 362:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -24219,7 +24238,7 @@ exports.registerFunctions = registerFunctions;
 
 /***/ }),
 
-/***/ 361:
+/***/ 363:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -26353,7 +26372,7 @@ function isSWControllerSupported() {
 
 /***/ }),
 
-/***/ 362:
+/***/ 364:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

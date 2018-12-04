@@ -77,29 +77,8 @@ export class LoginPage {
       });  
     }
   }
-  loginWithFacebook(){
-    this.loadingEffect();
-      this.angularFireAuth.auth.signInWithPopup(new firebase.auth.FacebookAuthProvider())
-      .then(userFace =>{
-        console.log(userFace);
-        this.navCtrl.setRoot('HomePage',{userFace});
-      })
-      .catch((erro: FirebaseError) => {
-        if (erro.code === 'auth/weak-password') {
-          this.msgErro = "A senha deve conter no mínimo 6 caracteres";
-        }
-          else if(erro.code === 'auth/invalid-email'){
-            this.msgErro = "O email informado é invalido";
-          }
-            else {
-                this.msgErro = "A senha informada está incorreta!";
-            }
-        this.exibirToast(this.msgErro);
-    });  
-  }
-
   fblogin(){
-    this.facebook.login(['email']).then(res=>{
+    this.facebook.login(['email','public_profile']).then(res=>{
       const fc=firebase.auth.FacebookAuthProvider.credential(res.authResponse.accessToken)
       firebase.auth().signInWithCredential(fc).then(fs=>{
         this.navCtrl.setRoot('HomePage',{res});

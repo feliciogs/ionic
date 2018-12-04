@@ -17,6 +17,7 @@ export class HomePage {
   bandsList$: Observable<Band[]>;
   public user : any;
   identifacao : any;
+  email: any;
   fotoPerfil:any;
   band: Band = {
     name:''
@@ -43,9 +44,11 @@ export class HomePage {
   ionViewWillLoad() {
     this.loadingEffect();
     if(this.user != null){
+
+      this.email = this.user.email;
       this.identifacao = this.user.displayName;
       this.fotoPerfil = this.user.photoURL;
-      console.log(this.fotoPerfil);
+      console.log(this.user.fotoPerfil);
     }
     this.bandsList$ = this.songsService.getBandList().snapshotChanges().map(changes=>{
       return changes.map(c => ({

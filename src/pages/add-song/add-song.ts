@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import { Song } from '../../models/song.model';
+import { Band } from '../../models/band.model';
+import { Observable } from 'rxjs/Observable';
 import { SongService } from '../../services/song.service';
 
 /**
@@ -21,15 +23,32 @@ export class AddSongPage {
     chords:'',
     band:''
   }
-  constructor(public navCtrl: NavController, public navParams: NavParams, private songs:SongService) {
+  bandsList$: Observable<Band[]>;
+  band: Band={
+    name:''
+  }
+  constructor(public navCtrl: NavController,public navParams: NavParams,
+    private songs:SongService, private regBand: SongService,
+    public loadingCtrl: LoadingController) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad AddSongPage');
-  }
-  addSong(song: Song){
-    this.songs.addSong(song).then(ref=>{
-      this.navCtrl.setRoot('HomePage', {key:ref.key});
+  ionViewWillLoad() {
+    const loader = this.loadingCtrl.create({
+      content: "Carregando aguarde...",
+      duration: 1500
     });
+    this.bandsList$ = this.songs.getBandList().snapshotChanges().map(changes=>{
+      return changes.map(c => ({
+        key: c.payload.key, ...c.payload.val()
+      }));
+    });
+    loader.present();
+  }
+  addSong(song: Song){  
+    /*this.band.name = this.song.band;
+    this.regBand.addBand(this.band).then(ref=>{});*/ 
+    this.songs.addSong(song).then(ref=>{
+    this.navCtrl.setRoot('HomePage', {key:ref.key});})
+    
   }
 }

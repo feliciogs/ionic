@@ -27,7 +27,7 @@ var HomePageModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_2__home__["a" /* HomePage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__home__["a" /* HomePage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__home__["a" /* HomePage */]),
             ],
         })
     ], HomePageModule);
@@ -95,9 +95,10 @@ var HomePage = /** @class */ (function () {
     HomePage.prototype.ionViewWillLoad = function () {
         this.loadingEffect();
         if (this.user != null) {
+            this.email = this.user.email;
             this.identifacao = this.user.displayName;
             this.fotoPerfil = this.user.photoURL;
-            console.log(this.fotoPerfil);
+            console.log(this.user.fotoPerfil);
         }
         this.bandsList$ = this.songsService.getBandList().snapshotChanges().map(function (changes) {
             return changes.map(function (c) { return (__assign({ key: c.payload.key }, c.payload.val())); });
@@ -133,12 +134,12 @@ var HomePage = /** @class */ (function () {
     };
     HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-home',template:/*ion-inline-start:"C:\Users\A\Documents\faculdade\backup\ionic\src\pages\home\home.html"*/'<!--\n\n  Generated template for the HomePage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-menu [content]="content">\n\n  <ion-content padding  class="menuApp">\n\n    <ion-list>\n\n        <ion-item>\n\n            <ion-thumbnail item-start>\n\n              <img src="`{{fotoPerfil}}">\n\n            </ion-thumbnail>\n\n            <h3>{{identifacao}}</h3>\n\n        </ion-item>\n\n        <ion-buttons >\n\n          <button class="menuApp" ion-item navPush = "AddSongPage"><ion-icon name="ios-add-circle-outline"></ion-icon>  Adicionar Frase</button>\n\n          <button class="menuApp" ion-item navPush = "RegisterPage"><ion-icon name="md-add-circle"></ion-icon>  Adicionar Autor</button>\n\n          <button class="menuApp" ion-item navPush="InvitePage"><ion-icon name="md-share"></ion-icon>  Convidar</button>\n\n          <button class="menuApp" ion-item (click)="sair()"><ion-icon name="md-exit"></ion-icon>   Sair</button>\n\n      </ion-buttons>\n\n    </ion-list>\n\n  </ion-content>\n\n</ion-menu>\n\n\n\n<ion-nav [root]="rootPage" #content></ion-nav>\n\n<ion-header>\n\n  <ion-navbar color="secondary">\n\n    <ion-buttons start>\n\n      <button ion-button icon-only menuToggle>\n\n        <ion-icon name="menu"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n    <ion-title>Meu Caderno de Frases</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content padding>\n\n  <ion-list>\n\n    <ion-item>\n\n      <ion-label>Frases do Autor:</ion-label>\n\n      <ion-select (ionChange)="onContextChange($event)" [(ngModel)]="bands" multiple="false" okText="Mostrar frases" cancelText="Cancelar" >\n\n        <ion-option selected="true">Todos</ion-option>\n\n        <ion-option *ngFor="let band of bandsList$ | async" detail-push>{{band.name}}</ion-option>\n\n      </ion-select>\n\n    </ion-item>\n\n  </ion-list>\n\n  <ion-list>\n\n    <ion-label>Frases:</ion-label>\n\n      <ion-item *ngFor="let song of songsList$ | async" detail-push navPush="ViewSongPage" [navParams]="{song:song}">\n\n      <h2>{{song.chords}}</h2>\n\n      <p>{{song.band}}</p>\n\n    </ion-item>\n\n  </ion-list>\n\n\n\n  <button ion-button full selected="true"(click)="showAllSongs()">Mostrar Todas as Frases</button>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\A\Documents\faculdade\backup\ionic\src\pages\home\home.html"*/,
+            selector: 'page-home',template:/*ion-inline-start:"C:\Users\Felicio Gabriel\suaFrase\ionic\src\pages\home\home.html"*/'<!--\n\n  Generated template for the HomePage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-menu [content]="content">\n\n  <ion-content padding  class="menuApp">\n\n    <ion-list>\n\n        <ion-item>\n\n            <ion-thumbnail item-start>\n\n              <img src="../../assets/imgs/user.png">\n\n            </ion-thumbnail>\n\n            <h3>{{identifacao}}{{email}}</h3>\n\n        </ion-item>\n\n        <ion-buttons >\n\n          <button class="menuApp" ion-item navPush = "AddSongPage"><ion-icon name="ios-add-circle-outline"></ion-icon>  Adicionar Frase</button>\n\n          <button class="menuApp" ion-item navPush = "RegisterPage"><ion-icon name="md-add-circle"></ion-icon>  Adicionar Autor</button>\n\n          <button class="menuApp" ion-item navPush="InvitePage"><ion-icon name="md-share"></ion-icon>  Convidar</button>\n\n          <button class="menuApp" ion-item (click)="sair()"><ion-icon name="md-exit"></ion-icon>   Sair</button>\n\n      </ion-buttons>\n\n    </ion-list>\n\n  </ion-content>\n\n</ion-menu>\n\n\n\n<ion-nav [root]="rootPage" #content></ion-nav>\n\n<ion-header>\n\n  <ion-navbar color="secondary">\n\n    <ion-buttons start>\n\n      <button ion-button icon-only menuToggle>\n\n        <ion-icon name="menu"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n    <ion-title>Meu Caderno de Frases</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content padding>\n\n  <ion-list>\n\n    <ion-item>\n\n      <ion-label>Frases do Autor:</ion-label>\n\n      <ion-select (ionChange)="onContextChange($event)" [(ngModel)]="bands" multiple="false" okText="Mostrar frases" cancelText="Cancelar" >\n\n        <ion-option selected="true">Todos</ion-option>\n\n        <ion-option *ngFor="let band of bandsList$ | async" detail-push>{{band.name}}</ion-option>\n\n      </ion-select>\n\n    </ion-item>\n\n  </ion-list>\n\n  <ion-list>\n\n    <ion-label>Frases:</ion-label>\n\n      <ion-item *ngFor="let song of songsList$ | async" detail-push navPush="ViewSongPage" [navParams]="{song:song}">\n\n      <p>{{song.chords}}</p>\n\n      <p><b>{{song.band}}</b></p>\n\n    </ion-item>\n\n  </ion-list>\n\n\n\n  <button ion-button full selected="true"(click)="showAllSongs()">Mostrar Todas as Frases</button>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\Felicio Gabriel\suaFrase\ionic\src\pages\home\home.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_2__services_song_service__["a" /* SongService */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* LoadingController */],
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_2__services_song_service__["a" /* SongService */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */],
             __WEBPACK_IMPORTED_MODULE_3_angularfire2_auth__["a" /* AngularFireAuth */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ToastController */]])
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* ToastController */]])
     ], HomePage);
     return HomePage;
 }());

@@ -27,7 +27,7 @@ var InvitePageModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_2__invite__["a" /* InvitePage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__invite__["a" /* InvitePage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__invite__["a" /* InvitePage */]),
             ],
         })
     ], InvitePageModule);
@@ -93,9 +93,9 @@ var InvitePage = /** @class */ (function () {
     };
     InvitePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-invite',template:/*ion-inline-start:"C:\Users\A\Documents\faculdade\backup\ionic\src\pages\invite\invite.html"*/'<!--\n\n  Generated template for the InvitePage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar color="secondary">\n\n    <ion-title>Convidar Pessoas</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n<ion-content padding>\n\n  <button ion-button full (click)="sendEmail()">Convidar amigos via Email!</button>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\A\Documents\faculdade\backup\ionic\src\pages\invite\invite.html"*/,
+            selector: 'page-invite',template:/*ion-inline-start:"C:\Users\Felicio Gabriel\suaFrase\ionic\src\pages\invite\invite.html"*/'<!--\n\n  Generated template for the InvitePage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar color="secondary">\n\n    <ion-title>Convidar Pessoas</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n<ion-content padding>\n\n    <ion-card>\n\n        <img src="../../assets/imgs/friends.png"/>\n\n        <div class="card-title"><p>Convide amigos para participarem do nosso aplicativo, \n\n          envie o seu convite por email para que seus amigos venham participar e compartilhar frases!!</p></div>\n\n        <div class="card-subtitle"><button ion-button full (click)="sendEmail()">Convidar</button></div>\n\n      </ion-card>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\Felicio Gabriel\suaFrase\ionic\src\pages\invite\invite.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_email_composer__["a" /* EmailComposer */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_social_sharing__["a" /* SocialSharing */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_email_composer__["a" /* EmailComposer */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_social_sharing__["a" /* SocialSharing */]])
     ], InvitePage);
     return InvitePage;
 }());

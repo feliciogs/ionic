@@ -11,7 +11,7 @@
 
   <ion-list>
     <form [formGroup]="loginForm" (submit)="register(email, password)" novalidate>
-      <ion-label text-center><h4>Cadastrar Usuário</h4></ion-label>
+      <ion-label class="text-config" text-center><h4>Cadastrar Usuário</h4></ion-label>
       <ion-item class="listItem">
         <ion-label>Email: </ion-label>
         <ion-input [(ngModel)]="email" formControlName="emailv"></ion-input>

@@ -27,7 +27,7 @@ var EditSongPageModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_2__edit_song__["a" /* EditSongPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__edit_song__["a" /* EditSongPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__edit_song__["a" /* EditSongPage */]),
             ],
         })
     ], EditSongPageModule);
@@ -65,10 +65,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Ionic pages and navigation.
  */
 var EditSongPage = /** @class */ (function () {
-    function EditSongPage(navCtrl, navParams, songs) {
+    function EditSongPage(navCtrl, navParams, songs, toastCtrl, alertCtrl) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.songs = songs;
+        this.toastCtrl = toastCtrl;
+        this.alertCtrl = alertCtrl;
     }
     EditSongPage.prototype.ionViewWillLoad = function () {
         this.song = this.navParams.get('song');
@@ -76,20 +78,47 @@ var EditSongPage = /** @class */ (function () {
     EditSongPage.prototype.saveSong = function (song) {
         var _this = this;
         this.songs.editSong(song).then(function () {
+            _this.exibirToast("Frase editada com Sucesso!");
             _this.navCtrl.setRoot('HomePage');
         });
     };
     EditSongPage.prototype.deleteSong = function (song) {
         var _this = this;
-        this.songs.removeSong(song).then(function () {
-            _this.navCtrl.setRoot('HomePage');
+        var alert = this.alertCtrl.create({
+            title: 'Apagar Frase',
+            message: 'Deseja apagar esta frase?',
+            buttons: [
+                {
+                    text: 'Cancelar',
+                    role: 'cancel',
+                    handler: function () {
+                        console.log('Cancelar');
+                    }
+                },
+                {
+                    text: 'Apagar',
+                    handler: function () {
+                        _this.songs.removeSong(song).then(function () {
+                            _this.navCtrl.setRoot('HomePage');
+                        });
+                    }
+                }
+            ]
         });
+        alert.present();
+    };
+    EditSongPage.prototype.exibirToast = function (erro) {
+        var toast = this.toastCtrl.create({ duration: 3000, position: 'botton' });
+        toast.setMessage(erro);
+        toast.present();
     };
     EditSongPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-edit-song',template:/*ion-inline-start:"C:\Users\A\Documents\faculdade\backup\ionic\src\pages\edit-song\edit-song.html"*/'<!--\n\n  Generated template for the EditSongPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar color="secondary">\n\n    <ion-title>Editando: {{song?.title}}</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n  <ion-item>\n\n    <ion-label>Autor:</ion-label>\n\n    <ion-input [(ngModel)]="song.band"></ion-input>\n\n  </ion-item>\n\n\n\n  <ion-item>\n\n    <ion-label>Titulo:</ion-label>\n\n    <ion-input [(ngModel)]="song.title"></ion-input>\n\n  </ion-item>\n\n\n\n  <ion-item class="chords">\n\n      <ion-label>Frase:</ion-label>\n\n      <ion-textarea rows="7" [(ngModel)]="song.chords"></ion-textarea>\n\n  </ion-item>\n\n  <ion-buttons>\n\n    <button ion-button block color="secondary" (click)="saveSong(song)"><ion-icon ios="ios-checkmark" md="md-checkmark">   Salvar</ion-icon></button>\n\n    <button ion-button block color="danger" (click)="deleteSong(song)"><ion-icon ios="ios-trash" md="md-trash">   Apagar Frase</ion-icon></button>\n\n</ion-buttons>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\A\Documents\faculdade\backup\ionic\src\pages\edit-song\edit-song.html"*/,
+            selector: 'page-edit-song',template:/*ion-inline-start:"C:\Users\Felicio Gabriel\suaFrase\ionic\src\pages\edit-song\edit-song.html"*/'<!--\n\n  Generated template for the EditSongPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar color="secondary">\n\n    <ion-title>Editando: {{song?.title}}</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n  <ion-list>\n\n      <ion-item>\n\n        <ion-label>Autor:</ion-label>\n\n        <ion-input [(ngModel)]="song.band"></ion-input>\n\n      </ion-item>\n\n      <ion-item>\n\n        <ion-label>Titulo:</ion-label>\n\n        <ion-input [(ngModel)]="song.title"></ion-input>\n\n      </ion-item>\n\n      <ion-item class="chords">\n\n          <ion-label>Frase:</ion-label>\n\n          <ion-textarea rows="7" [(ngModel)]="song.chords"></ion-textarea>\n\n      </ion-item>\n\n      <ion-buttons>\n\n        <button ion-button block color="secondary" (click)="saveSong(song)"><ion-icon ios="ios-checkmark" md="md-checkmark">   Salvar</ion-icon></button>\n\n        <button ion-button block color="danger" (click)="deleteSong(song)"><ion-icon ios="ios-trash" md="md-trash">   Apagar Frase</ion-icon></button>\n\n    </ion-buttons>\n\n  </ion-list>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\Felicio Gabriel\suaFrase\ionic\src\pages\edit-song\edit-song.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__services_song_service__["a" /* SongService */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_2__services_song_service__["a" /* SongService */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* ToastController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
     ], EditSongPage);
     return EditSongPage;
 }());

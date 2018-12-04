@@ -27,7 +27,7 @@ var ViewSongPageModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_2__view_song__["a" /* ViewSongPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__view_song__["a" /* ViewSongPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__view_song__["a" /* ViewSongPage */]),
             ],
         })
     ], ViewSongPageModule);
@@ -86,9 +86,9 @@ var ViewSongPage = /** @class */ (function () {
     };
     ViewSongPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-view-song',template:/*ion-inline-start:"C:\Users\A\Documents\faculdade\backup\ionic\src\pages\view-song\view-song.html"*/'<!--\n\n  Generated template for the ViewSongPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar color="secondary">\n\n    <ion-title>Autor da frase: {{song?.band}}</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n<ion-content padding>\n\n  <ion-list>\n\n    <ion-label>Título da Frase: </ion-label>\n\n    <ion-item class="lyrics">\n\n        <ion-input text-center readonly [(ngModel)]="song.title"></ion-input>\n\n    </ion-item>\n\n    <ion-label>Frase: </ion-label>\n\n    <ion-item class="chords">\n\n      <ion-textarea rows="7" readonly [(ngModel)]="song.chords"></ion-textarea>\n\n    </ion-item>\n\n  </ion-list>\n\n  <ion-buttons>\n\n      <button ion-button full color="secondary" detail-push navPush="EditSongPage" [navParams]="{song: song}">\n\n        <ion-icon ios="ios-create" md="md-create">  Editar Frase</ion-icon>\n\n      </button>\n\n      <button ion-button full (click)="share()" ><ion-icon ios="ios-share" md="md-share">   Compartilhar</ion-icon></button>\n\n    </ion-buttons>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\A\Documents\faculdade\backup\ionic\src\pages\view-song\view-song.html"*/,
+            selector: 'page-view-song',template:/*ion-inline-start:"C:\Users\Felicio Gabriel\suaFrase\ionic\src\pages\view-song\view-song.html"*/'<!--\n\n  Generated template for the ViewSongPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar color="secondary">\n\n    <ion-title>Autor da frase: {{song?.band}}</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n<ion-content padding>\n\n  <ion-list>\n\n    <ion-label>Título da Frase: </ion-label>\n\n    <ion-item class="lyrics">\n\n        <ion-input text-center readonly [(ngModel)]="song.title"></ion-input>\n\n    </ion-item>\n\n    <ion-label>Frase: </ion-label>\n\n    <ion-item class="chords">\n\n      <ion-textarea rows="7" readonly [(ngModel)]="song.chords"></ion-textarea>\n\n    </ion-item>\n\n  </ion-list>\n\n  <ion-buttons>\n\n      <button ion-button full color="secondary" detail-push navPush="EditSongPage" [navParams]="{song: song}">\n\n        <ion-icon ios="ios-create" md="md-create">  Editar Frase</ion-icon>\n\n      </button>\n\n      <button ion-button full (click)="share()" ><ion-icon ios="ios-share" md="md-share">   Compartilhar</ion-icon></button>\n\n    </ion-buttons>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\Felicio Gabriel\suaFrase\ionic\src\pages\view-song\view-song.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_social_sharing__["a" /* SocialSharing */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_social_sharing__["a" /* SocialSharing */]])
     ], ViewSongPage);
     return ViewSongPage;
 }());

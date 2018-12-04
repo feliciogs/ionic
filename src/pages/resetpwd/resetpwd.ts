@@ -42,8 +42,8 @@ export class ResetpwdPage {
               else{
                 this.msgErro = "Email não existe ou não está cadastrado";
               }   
-        this.exibirToast(this.msgErro);
-    });  
+          this.exibirToast(this.msgErro);
+        });  
     }
     private exibirToast(erro: string): void {
       let toast = this.toastCtrl.create({duration: 3000,position: 'botton'});

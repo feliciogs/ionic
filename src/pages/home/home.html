@@ -9,9 +9,9 @@
     <ion-list>
         <ion-item>
             <ion-thumbnail item-start>
-              <img src="`{{fotoPerfil}}">
+              <img src="../../assets/imgs/user.png">
             </ion-thumbnail>
-            <h3>{{identifacao}}</h3>
+            <h3>{{identifacao}}{{email}}</h3>
         </ion-item>
         <ion-buttons >
           <button class="menuApp" ion-item navPush = "AddSongPage"><ion-icon name="ios-add-circle-outline"></ion-icon>  Adicionar Frase</button>
@@ -47,8 +47,8 @@
   <ion-list>
     <ion-label>Frases:</ion-label>
       <ion-item *ngFor="let song of songsList$ | async" detail-push navPush="ViewSongPage" [navParams]="{song:song}">
-      <h2>{{song.chords}}</h2>
-      <p>{{song.band}}</p>
+      <p>{{song.chords}}</p>
+      <p><b>{{song.band}}</b></p>
     </ion-item>
   </ion-list>
 

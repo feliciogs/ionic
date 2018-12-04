@@ -42,7 +42,7 @@ export class NewAcountPage {
     if (!this.loginForm.valid) {
       if (!emailv.valid) {
         this.errorEmail = true;
-        this.messageEmail = "Ops! Email já existe ou é inválido";
+        this.messageEmail = "Ops! Informe um email por favor";
       } else {
         this.messageEmail = "";
       }

@@ -27,7 +27,7 @@ var ResetpwdPageModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_2__resetpwd__["a" /* ResetpwdPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__resetpwd__["a" /* ResetpwdPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__resetpwd__["a" /* ResetpwdPage */]),
             ],
         })
     ], ResetpwdPageModule);
@@ -104,9 +104,9 @@ var ResetpwdPage = /** @class */ (function () {
     };
     ResetpwdPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-resetpwd',template:/*ion-inline-start:"C:\Users\A\Documents\faculdade\backup\ionic\src\pages\resetpwd\resetpwd.html"*/'<!--\n\n  Generated template for the LoginPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n  </ion-header>\n\n  <ion-content padding class="bodyApp" [attr.noScroll]="shouldScroll">\n\n    <img class="logoApp" src="../../assets/imgs/logo.png" />\n\n  \n\n    <ion-list >\n\n        <form>\n\n          <ion-label text-center><h4>Resetar Senha</h4></ion-label>\n\n          <ion-item  class="listItem">\n\n            <ion-label>Email: </ion-label>\n\n            <ion-input type="email" [(ngModel)]="email" [ngModelOptions]="{standalone:true}"></ion-input>\n\n          </ion-item>\n\n          <ion-buttons text-center>\n\n            <button ion-button round color="secondary" (click)="resetPassword(email)">Resetar</button>\n\n            <button ion-button round navPush = "LoginPage">Voltar</button>\n\n          </ion-buttons>\n\n        </form>\n\n  </ion-list>\n\n  </ion-content>\n\n  '/*ion-inline-end:"C:\Users\A\Documents\faculdade\backup\ionic\src\pages\resetpwd\resetpwd.html"*/,
+            selector: 'page-resetpwd',template:/*ion-inline-start:"C:\Users\Felicio Gabriel\suaFrase\ionic\src\pages\resetpwd\resetpwd.html"*/'<!--\n\n  Generated template for the LoginPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n  </ion-header>\n\n  <ion-content padding class="bodyApp" [attr.noScroll]="shouldScroll">\n\n    <img class="logoApp" src="../../assets/imgs/logo.png" />\n\n  \n\n    <ion-list >\n\n        <form>\n\n          <ion-label text-center><h4>Resetar Senha</h4></ion-label>\n\n          <ion-item  class="listItem">\n\n            <ion-label>Email: </ion-label>\n\n            <ion-input type="email" [(ngModel)]="email" [ngModelOptions]="{standalone:true}"></ion-input>\n\n          </ion-item>\n\n          <ion-buttons text-center>\n\n            <button ion-button round color="secondary" (click)="resetPassword(email)">Resetar</button>\n\n            <button ion-button round navPush = "LoginPage">Voltar</button>\n\n          </ion-buttons>\n\n        </form>\n\n  </ion-list>\n\n  </ion-content>\n\n  '/*ion-inline-end:"C:\Users\Felicio Gabriel\suaFrase\ionic\src\pages\resetpwd\resetpwd.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2_angularfire2_auth__["a" /* AngularFireAuth */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ToastController */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2_angularfire2_auth__["a" /* AngularFireAuth */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* ToastController */]])
     ], ResetpwdPage);
     return ResetpwdPage;
 }());

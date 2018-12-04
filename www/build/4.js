@@ -27,7 +27,7 @@ var NewAcountPageModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_2__new_acount__["a" /* NewAcountPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__new_acount__["a" /* NewAcountPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__new_acount__["a" /* NewAcountPage */]),
             ],
         })
     ], NewAcountPageModule);
@@ -92,7 +92,7 @@ var NewAcountPage = /** @class */ (function () {
         if (!this.loginForm.valid) {
             if (!emailv.valid) {
                 this.errorEmail = true;
-                this.messageEmail = "Ops! Email já existe ou é inválido";
+                this.messageEmail = "Ops! Informe um email por favor";
             }
             else {
                 this.messageEmail = "";
@@ -133,12 +133,12 @@ var NewAcountPage = /** @class */ (function () {
     };
     NewAcountPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-new-acount',template:/*ion-inline-start:"C:\Users\A\Documents\faculdade\backup\ionic\src\pages\new-acount\new-acount.html"*/'<!--\n\n  Generated template for the LoginPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n</ion-header>\n\n<ion-content padding class="bodyApp">\n\n  <img class="logoApp" src="../../assets/imgs/logo.png"/>\n\n\n\n  <ion-list>\n\n    <form [formGroup]="loginForm" (submit)="register(email, password)" novalidate>\n\n      <ion-label text-center><h4>Cadastrar Usuário</h4></ion-label>\n\n      <ion-item class="listItem">\n\n        <ion-label>Email: </ion-label>\n\n        <ion-input [(ngModel)]="email" formControlName="emailv"></ion-input>\n\n      </ion-item>\n\n      <h6 *ngIf="errorEmail" class="error"> {{messageEmail}}</h6>\n\n      <ion-item class="listItem">\n\n        <ion-label>Senha: </ion-label>\n\n        <ion-input round type="password" [(ngModel)]="password" formControlName="passwordv"></ion-input>\n\n      </ion-item>\n\n      <h6 *ngIf="errorPassword" class="error"> {{messagePassword}}</h6>\n\n      <ion-buttons text-center class="btn-config">\n\n        <button ion-button round medium color="secondary">Cadastrar</button>\n\n        <button ion-button round navPush = "LoginPage">Voltar</button>\n\n      </ion-buttons>\n\n    </form>\n\n</ion-list>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\A\Documents\faculdade\backup\ionic\src\pages\new-acount\new-acount.html"*/,
+            selector: 'page-new-acount',template:/*ion-inline-start:"C:\Users\Felicio Gabriel\suaFrase\ionic\src\pages\new-acount\new-acount.html"*/'<!--\n\n  Generated template for the LoginPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n</ion-header>\n\n<ion-content padding class="bodyApp">\n\n  <img class="logoApp" src="../../assets/imgs/logo.png"/>\n\n\n\n  <ion-list>\n\n    <form [formGroup]="loginForm" (submit)="register(email, password)" novalidate>\n\n      <ion-label class="text-config" text-center><h4>Cadastrar Usuário</h4></ion-label>\n\n      <ion-item class="listItem">\n\n        <ion-label>Email: </ion-label>\n\n        <ion-input [(ngModel)]="email" formControlName="emailv"></ion-input>\n\n      </ion-item>\n\n      <h6 *ngIf="errorEmail" class="error"> {{messageEmail}}</h6>\n\n      <ion-item class="listItem">\n\n        <ion-label>Senha: </ion-label>\n\n        <ion-input round type="password" [(ngModel)]="password" formControlName="passwordv"></ion-input>\n\n      </ion-item>\n\n      <h6 *ngIf="errorPassword" class="error"> {{messagePassword}}</h6>\n\n      <ion-buttons text-center class="btn-config">\n\n        <button ion-button round medium color="secondary">Cadastrar</button>\n\n        <button ion-button round navPush = "LoginPage">Voltar</button>\n\n      </ion-buttons>\n\n    </form>\n\n</ion-list>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\Felicio Gabriel\suaFrase\ionic\src\pages\new-acount\new-acount.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */],
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */],
             __WEBPACK_IMPORTED_MODULE_3_angularfire2_auth__["a" /* AngularFireAuth */],
             __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormBuilder */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ToastController */]])
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* ToastController */]])
     ], NewAcountPage);
     return NewAcountPage;
 }());

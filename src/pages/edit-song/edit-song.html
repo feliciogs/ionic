@@ -14,22 +14,22 @@
 
 
 <ion-content padding>
-  <ion-item>
-    <ion-label>Autor:</ion-label>
-    <ion-input [(ngModel)]="song.band"></ion-input>
-  </ion-item>
-
-  <ion-item>
-    <ion-label>Titulo:</ion-label>
-    <ion-input [(ngModel)]="song.title"></ion-input>
-  </ion-item>
-
-  <ion-item class="chords">
-      <ion-label>Frase:</ion-label>
-      <ion-textarea rows="7" [(ngModel)]="song.chords"></ion-textarea>
-  </ion-item>
-  <ion-buttons>
-    <button ion-button block color="secondary" (click)="saveSong(song)"><ion-icon ios="ios-checkmark" md="md-checkmark">   Salvar</ion-icon></button>
-    <button ion-button block color="danger" (click)="deleteSong(song)"><ion-icon ios="ios-trash" md="md-trash">   Apagar Frase</ion-icon></button>
-</ion-buttons>
+  <ion-list>
+      <ion-item>
+        <ion-label>Autor:</ion-label>
+        <ion-input [(ngModel)]="song.band"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Titulo:</ion-label>
+        <ion-input [(ngModel)]="song.title"></ion-input>
+      </ion-item>
+      <ion-item class="chords">
+          <ion-label>Frase:</ion-label>
+          <ion-textarea rows="7" [(ngModel)]="song.chords"></ion-textarea>
+      </ion-item>
+      <ion-buttons>
+        <button ion-button block color="secondary" (click)="saveSong(song)"><ion-icon ios="ios-checkmark" md="md-checkmark">   Salvar</ion-icon></button>
+        <button ion-button block color="danger" (click)="deleteSong(song)"><ion-icon ios="ios-trash" md="md-trash">   Apagar Frase</ion-icon></button>
+    </ion-buttons>
+  </ion-list>
 </ion-content>

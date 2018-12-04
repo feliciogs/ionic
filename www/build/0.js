@@ -27,7 +27,7 @@ var LoginPageModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_2__login__["a" /* LoginPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__login__["a" /* LoginPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__login__["a" /* LoginPage */]),
             ],
         })
     ], LoginPageModule);
@@ -132,30 +132,9 @@ var LoginPage = /** @class */ (function () {
             });
         }
     };
-    LoginPage.prototype.loginWithFacebook = function () {
-        var _this = this;
-        this.loadingEffect();
-        this.angularFireAuth.auth.signInWithPopup(new __WEBPACK_IMPORTED_MODULE_5_firebase___default.a.auth.FacebookAuthProvider())
-            .then(function (userFace) {
-            console.log(userFace);
-            _this.navCtrl.setRoot('HomePage', { userFace: userFace });
-        })
-            .catch(function (erro) {
-            if (erro.code === 'auth/weak-password') {
-                _this.msgErro = "A senha deve conter no mínimo 6 caracteres";
-            }
-            else if (erro.code === 'auth/invalid-email') {
-                _this.msgErro = "O email informado é invalido";
-            }
-            else {
-                _this.msgErro = "A senha informada está incorreta!";
-            }
-            _this.exibirToast(_this.msgErro);
-        });
-    };
     LoginPage.prototype.fblogin = function () {
         var _this = this;
-        this.facebook.login(['email']).then(function (res) {
+        this.facebook.login(['email', 'public_profile']).then(function (res) {
             var fc = __WEBPACK_IMPORTED_MODULE_5_firebase___default.a.auth.FacebookAuthProvider.credential(res.authResponse.accessToken);
             __WEBPACK_IMPORTED_MODULE_5_firebase___default.a.auth().signInWithCredential(fc).then(function (fs) {
                 _this.navCtrl.setRoot('HomePage', { res: res });
@@ -174,11 +153,11 @@ var LoginPage = /** @class */ (function () {
     };
     LoginPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-login',template:/*ion-inline-start:"C:\Users\A\Documents\faculdade\backup\ionic\src\pages\login\login.html"*/'<!--\n\n  Generated template for the LoginPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n</ion-header>\n\n\n\n<ion-content padding class="bodyApp" [attr.noScroll]="shouldScroll">\n\n  <img class="logoApp" src="../../assets/imgs/logo.png" />\n\n\n\n  <ion-list >\n\n      <form [formGroup]="loginForm" (submit)="login(email, password)" novalidate>\n\n        <ion-label text-center><h4 class="text-config">Login</h4></ion-label>\n\n        <ion-item  class="listItem">\n\n          <ion-label>Email: </ion-label>\n\n          <ion-input type="email" [(ngModel)]="email" formControlName="emailv"></ion-input>\n\n        </ion-item>\n\n        <h6 *ngIf="errorEmail" class="error"> {{messageEmail}}</h6>\n\n        <ion-item class="listItem">\n\n          <ion-label>Senha: </ion-label>\n\n          <ion-input type="password" [(ngModel)]="password" formControlName="passwordv"></ion-input>\n\n        </ion-item>\n\n        <h6 *ngIf="errorPassword" class="error"> {{messagePassword}}</h6>\n\n        <div text-center class="btn-config">\n\n          <button ion-button round full large>Entrar</button>\n\n        </div>\n\n      </form> \n\n      \n\n      <div text-center class="btn-config">\n\n        <ion-label text-center><h6 class="text-config">Ou Acesse com: </h6></ion-label>\n\n        <button ion-button round medium (click)="fblogin()"><ion-icon name="logo-facebook">  Login com Facebook</ion-icon></button>\n\n      </div>\n\n      <div text-center>\n\n          <button ion-button class="text-config" clear navPush = "NewAcountPage">Novo aqui?Cadastre-se.</button>\n\n          <button ion-button class="text-config" clear navPush = "ResetpwdPage">Esqueceu sua Senha?</button>\n\n      </div>\n\n</ion-list>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\A\Documents\faculdade\backup\ionic\src\pages\login\login.html"*/,
+            selector: 'page-login',template:/*ion-inline-start:"C:\Users\Felicio Gabriel\suaFrase\ionic\src\pages\login\login.html"*/'<!--\n\n  Generated template for the LoginPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n</ion-header>\n\n\n\n<ion-content padding class="bodyApp" [attr.noScroll]="shouldScroll">\n\n  <img class="logoApp" src="../../assets/imgs/logo.png" />\n\n\n\n  <ion-list >\n\n      <form [formGroup]="loginForm" (submit)="login(email, password)" novalidate>\n\n        <ion-label text-center><h4 class="text-config">Login</h4></ion-label>\n\n        <ion-item  class="listItem">\n\n          <ion-label>Email: </ion-label>\n\n          <ion-input type="email" [(ngModel)]="email" formControlName="emailv"></ion-input>\n\n        </ion-item>\n\n        <h6 *ngIf="errorEmail" class="error"> {{messageEmail}}</h6>\n\n        <ion-item class="listItem">\n\n          <ion-label>Senha: </ion-label>\n\n          <ion-input type="password" [(ngModel)]="password" formControlName="passwordv"></ion-input>\n\n        </ion-item>\n\n        <h6 *ngIf="errorPassword" class="error"> {{messagePassword}}</h6>\n\n        <div text-center class="btn-config">\n\n          <button ion-button round full large>Entrar</button>\n\n        </div>\n\n      </form> \n\n      \n\n      <div text-center class="btn-config">\n\n        <ion-label text-center><h6 class="text-config">Ou Acesse com: </h6></ion-label>\n\n        <button ion-button round medium (click)="fblogin()"><ion-icon name="logo-facebook">  Login com Facebook</ion-icon></button>\n\n      </div>\n\n      <div text-center>\n\n          <button ion-button class="text-config" clear navPush = "NewAcountPage">Novo aqui?Cadastre-se.</button>\n\n          <button ion-button class="text-config" clear navPush = "ResetpwdPage">Esqueceu sua Senha?</button>\n\n      </div>\n\n</ion-list>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\Felicio Gabriel\suaFrase\ionic\src\pages\login\login.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */],
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */],
             __WEBPACK_IMPORTED_MODULE_3_angularfire2_auth__["a" /* AngularFireAuth */], __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormBuilder */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ToastController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* LoadingController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* ToastController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */],
             __WEBPACK_IMPORTED_MODULE_4__ionic_native_facebook__["a" /* Facebook */]])
     ], LoginPage);
     return LoginPage;

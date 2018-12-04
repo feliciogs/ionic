@@ -9,28 +9,26 @@
   <ion-navbar color="secondary">
     <ion-title>Adicionar Nova Frase</ion-title>
   </ion-navbar>
-
 </ion-header>
-
-
 <ion-content padding>
   <ion-item>
     <ion-label>
-      Nome do Autor
+      <b>Nome do Autor</b>
     </ion-label>
-    <ion-input [(ngModel)]="song.band" placeholder="Nome do autor..."></ion-input>
+    <ion-input [(ngModel)]="song.band" placeholder="..."></ion-input>
   </ion-item>
   <ion-item>
       <ion-label>
-        Titulo da Frase
+        <b>Titulo da Frase</b>
       </ion-label>
-      <ion-input [(ngModel)]="song.title" placeholder="Tema da frase..."></ion-input>
+      <ion-input [(ngModel)]="song.title" placeholder="..."></ion-input>
     </ion-item>
   <ion-item >
       <ion-label>
-         Frase
+         <b>Frase</b>
       </ion-label>
-      <ion-textarea rows="4" class="frase" [(ngModel)]="song.chords" placeholder="Frase..."></ion-textarea>
+      <ion-textarea rows="4" class="frase" [(ngModel)]="song.chords" placeholder="..."></ion-textarea>
   </ion-item>
   <button ion-button block color="secundary" (click)="addSong(song)"><ion-icon ios="ios-add" md="md-add">   Adicionar</ion-icon></button>
+  <ion-label color="danger"><h6>Obs: Verifique antes de adicionar a frase <br/> se o autor já está cadastrado</h6></ion-label>
 </ion-content>
